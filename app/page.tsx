@@ -21,10 +21,19 @@ type PortfolioItem = {
   id: string;
   title?: string;
   thumbnail?: string;
+  coverImage?: string;
   images?: string[];
   howItWorks?: string;
   liveUrl?: string;
   tags?: string;
+  feature?: string;
+  development?: string;
+  quote?: string;
+  quoteAuthor?: string;
+  processResults?: string;
+  technologies?: string[];
+  client?: string;
+  publishedAt?: string;
 };
 
 type PortfolioResponse = {
@@ -597,41 +606,7 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* <section className="section slide4 portfolio-bg" id="portfolio">
-          <div className="container">
-            <div className="row pb-5 heading-row">
-              <div className="col-12 col-md-7">
-                <h3 className="main-font text-uppercase">
-                  <span className="text-yellow d-block"> PORTFOLIO </span>{" "}
-                  <span> MY RECENT WORK </span>
-                </h3>
-                <p className="py-1 alt-font">
-                  I believe in art and that is my passion throughout my life.
-                </p>
-              </div>
-              <div className="col-12 col-md-5 text-md-right pt-4 pt-md-0">
-                <h2 className="m-0 text-yellow main-font">20</h2>
-                <p className="alt-font">Portfolio Items</p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-sm-12">
-                <div className="team-classic owl-team owl-carousel text-center">
-                  {portfolio.map((item) => (
-                    <PortfolioCard key={item.id} item={item} />
-                  ))}
-                </div>
-                <a className="circle ini-customPrevBtn" id="team-circle-left">
-                  <i className="lni-chevron-left"></i>
-                </a>
-                <a className="circle ini-customNextBtn" id="team-circle-right">
-                  <i className="lni-chevron-right"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section> */}
-<PortfolioSection portfolio={portfolio} />
+        <PortfolioSection portfolio={portfolio} />
         <section className="section slide6 testimonial-bg" id="testimonial">
           <div className="container">
             <div className="row pb-5 heading-row">
@@ -836,43 +811,3 @@ export default async function Home() {
   );
 }
 
-const PortfolioCard = ({ item }: { item: PortfolioItem }) => {
-  return (
-    <div className="item">
-      <div className="team-data-img">
-        <a
-          href="/personal-hotspot/images/portfolio-img-1.jpg"
-          data-fancybox="images"
-        >
-          <div className="single-work">
-            <img
-              src={item.thumbnail || ""}
-              alt="team"
-              className="img-responsive"
-              data-no-retina
-            />
-            <div className="overlay-text center-block">
-              <div className="cases-image-inner">
-                <span className="cases-line top"></span>
-                <span className="cases-line top-right"></span>
-                <span className="cases-line bottom"></span>
-                <span className="cases-line bottom-left"></span>
-                <h6 className="text-white text-uppercase alt-font">
-                  {item?.category?.[0] || ""}
-                </h6>
-              </div>
-            </div>
-          </div>
-        </a>
-        <div className="portfolio-content">
-          <h5 className="text-yellow main-font mb-2 text-uppercase">
-           {item?.title || ""}
-          </h5>
-          <p className="text-capitalize">
-            {item?.howItWorks?.slice(0, 100) || ""}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
