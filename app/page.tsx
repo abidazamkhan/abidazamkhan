@@ -12,8 +12,41 @@ export const metadata: Metadata = {
     images: ["/personal-hotspot/images/slider-img.png"],
   },
 };
+type PortfolioItem = {
+  id: string;
+  title?: string;
+  thumbnail?: string;
+  images?: string[];
+  howItWorks?: string;
+  liveUrl?: string;
+  tags?: string;
+};
 
-export default function Home() {
+type PortfolioResponse = {
+  data?: {
+    portfolios?: PortfolioItem[];
+  };
+};
+
+const fetchPortfolio = async (): Promise<PortfolioItem[]> => {
+  try {
+    const res = await fetch("https://core.unipixer.com/api/v1/portfolio/published", {
+      next: { revalidate: 300 },
+    });
+
+    if (!res.ok) return [];
+
+    const data: PortfolioResponse = await res.json();
+    return data.data?.portfolios ?? [];
+  } catch {
+    return [];
+  }
+};
+
+
+export default async function Home() {
+   const portfolio = await fetchPortfolio();
+   console.log("data",portfolio);
   return (
     <>
       <Script id="ph-body-attrs" strategy="afterInteractive">
