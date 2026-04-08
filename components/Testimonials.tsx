@@ -24,7 +24,7 @@ const Testimonials = () => {
               <div className="item text-center">
                 <div className="icon-quotes mb-4"><i className="fas fa-quote-right"></i></div>
                 <div className="description">
-                  <p className="text-grey paragraph">Philip's attention to detail and creative vision transformed our brand. Highly recommended!</p>
+                  <p className="text-grey paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae egestas mi, vel dapibus diam. Mauris malesuada, nisl non rutrum commodo, sem magna laoreet tellus, eu euismod dolor enim et mi. In at tempor purus. </p>
                 </div>
                 <div className="testimonial-img mt-4"><img src="/personal-hotspot/images/testimonial-img-1.png" alt="Sara Jones" /></div>
                 <div className="testimonial-tittle mt-3 mb-3"><h4 className="mb-0 text-yellow main-font font-weight-normal text-uppercase">Sara Jones</h4></div>
@@ -32,7 +32,7 @@ const Testimonials = () => {
               <div className="item text-center">
                 <div className="icon-quotes mb-4"><i className="fas fa-quote-right"></i></div>
                 <div className="description">
-                  <p className="text-grey paragraph">Exceptional work and very professional approach to digital media. Truly impressive!</p>
+                  <p className="text-grey paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae egestas mi, vel dapibus diam. Mauris malesuada, nisl non rutrum commodo, sem magna laoreet tellus, eu euismod dolor enim et mi. In at tempor purus. </p>
                 </div>
                 <div className="testimonial-img mt-4"><img src="/personal-hotspot/images/testimonial-img-2.png" alt="Ricky Clark" /></div>
                 <div className="testimonial-tittle mt-3 mb-3"><h4 className="mb-0 text-yellow main-font font-weight-normal text-uppercase">Ricky Clark</h4></div>
@@ -40,7 +40,7 @@ const Testimonials = () => {
               <div className="item text-center">
                 <div className="icon-quotes mb-4"><i className="fas fa-quote-right"></i></div>
                 <div className="description">
-                  <p className="text-grey paragraph">Great experience working with him. He delivered exactly what we needed and more.</p>
+                  <p className="text-grey paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae egestas mi, vel dapibus diam. Mauris malesuada, nisl non rutrum commodo, sem magna laoreet tellus, eu euismod dolor enim et mi. In at tempor purus. </p>
                 </div>
                 <div className="testimonial-img mt-4"><img src="/personal-hotspot/images/testimonial-img-3.png" alt="Johnson Smith" /></div>
                 <div className="testimonial-tittle mt-3 mb-3"><h4 className="mb-0 text-yellow main-font font-weight-normal text-uppercase">Johnson Smith</h4></div>
@@ -48,7 +48,39 @@ const Testimonials = () => {
               <div className="item text-center">
                 <div className="icon-quotes mb-4"><i className="fas fa-quote-right"></i></div>
                 <div className="description">
-                  <p className="text-grey paragraph">Very talented and creative individual. The best choice for digital design.</p>
+                  <p className="text-grey paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae egestas mi, vel dapibus diam. Mauris malesuada, nisl non rutrum commodo, sem magna laoreet tellus, eu euismod dolor enim et mi. In at tempor purus. </p>
+                </div>
+                <div className="testimonial-img mt-4"><img src="/personal-hotspot/images/testimonial-img-4.png" alt="Ellie Joe" /></div>
+                <div className="testimonial-tittle mt-3 mb-3"><h4 className="mb-0 text-yellow main-font font-weight-normal text-uppercase">Ellie Joe</h4></div>
+              </div>
+              <div className="item text-center">
+                <div className="icon-quotes mb-4"><i className="fas fa-quote-right"></i></div>
+                <div className="description">
+                  <p className="text-grey paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae egestas mi, vel dapibus diam. Mauris malesuada, nisl non rutrum commodo, sem magna laoreet tellus, eu euismod dolor enim et mi. In at tempor purus. </p>
+                </div>
+                <div className="testimonial-img mt-4"><img src="/personal-hotspot/images/testimonial-img-1.png" alt="Sara Jones" /></div>
+                <div className="testimonial-tittle mt-3 mb-3"><h4 className="mb-0 text-yellow main-font font-weight-normal text-uppercase">Sara Jones</h4></div>
+              </div>
+              <div className="item text-center">
+                <div className="icon-quotes mb-4"><i className="fas fa-quote-right"></i></div>
+                <div className="description">
+                  <p className="text-grey paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae egestas mi, vel dapibus diam. Mauris malesuada, nisl non rutrum commodo, sem magna laoreet tellus, eu euismod dolor enim et mi. In at tempor purus. </p>
+                </div>
+                <div className="testimonial-img mt-4"><img src="/personal-hotspot/images/testimonial-img-2.png" alt="Ricky Clark" /></div>
+                <div className="testimonial-tittle mt-3 mb-3"><h4 className="mb-0 text-yellow main-font font-weight-normal text-uppercase">Ricky Clark</h4></div>
+              </div>
+              <div className="item text-center">
+                <div className="icon-quotes mb-4"><i className="fas fa-quote-right"></i></div>
+                <div className="description">
+                  <p className="text-grey paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae egestas mi, vel dapibus diam. Mauris malesuada, nisl non rutrum commodo, sem magna laoreet tellus, eu euismod dolor enim et mi. In at tempor purus. </p>
+                </div>
+                <div className="testimonial-img mt-4"><img src="/personal-hotspot/images/testimonial-img-3.png" alt="Johnson Smith" /></div>
+                <div className="testimonial-tittle mt-3 mb-3"><h4 className="mb-0 text-yellow main-font font-weight-normal text-uppercase">Johnson Smith</h4></div>
+              </div>
+              <div className="item text-center">
+                <div className="icon-quotes mb-4"><i className="fas fa-quote-right"></i></div>
+                <div className="description">
+                  <p className="text-grey paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae egestas mi, vel dapibus diam. Mauris malesuada, nisl non rutrum commodo, sem magna laoreet tellus, eu euismod dolor enim et mi. In at tempor purus. </p>
                 </div>
                 <div className="testimonial-img mt-4"><img src="/personal-hotspot/images/testimonial-img-4.png" alt="Ellie Joe" /></div>
                 <div className="testimonial-tittle mt-3 mb-3"><h4 className="mb-0 text-yellow main-font font-weight-normal text-uppercase">Ellie Joe</h4></div>

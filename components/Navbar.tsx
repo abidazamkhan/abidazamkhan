@@ -13,7 +13,7 @@ export default function Navbar() {
         <div className="navigation-toggle">
           <ul className="slider-social toggle-btn my-0">
             <li>
-              <a href="#" className="sidemenu_btn" id="sidemenu_toggle">
+              <a href="javascript:void(0);" className="sidemenu_btn" id="sidemenu_toggle">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -71,11 +71,11 @@ export default function Navbar() {
               <li><a className="social-icon" href="#"><i className="fab fa-linkedin-in"></i> </a> </li>
               <li><a className="social-icon" href="#"><i className="fab fa-facebook-f"></i> </a> </li>
             </ul>
-            <p>&copy; 2026 Abid Azam Khan. Made With Love by UNIPIXER</p>
+            <p>&copy; 2024 MegaOne. Made With Love by Themesindustry</p>
           </div>
         </div>
       </div>
-      <a id="close_side_menu" href="#"></a>
+      <a id="close_side_menu" href="javascript:void(0);"></a>
     </header>
   );
 }

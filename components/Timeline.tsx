@@ -26,11 +26,11 @@ const Timeline = () => {
                     <ol>
                       <li><a href="#" data-date="16/01/2017" className="older-event selected">2015</a></li>
                       <li><a href="#" data-date="20/05/2017" style={{ left: 200 }}>2017</a></li>
-                      <li><a href="#" data-date="20/09/2017" style={{ left: 400 }}>2019</a></li>
-                      <li><a href="#" data-date="20/10/2017" style={{ left: 600 }}>2020</a></li>
-                      <li><a href="#" data-date="20/02/2018" style={{ left: 800 }}>2022</a></li>
-                      <li><a href="#" data-date="20/04/2018" style={{ left: 1000 }}>2023</a></li>
-                      <li><a href="#" data-date="20/10/2018" style={{ left: 1200 }}>2026</a></li>
+                      <li><a href="#" data-date="20/09/2017" style={{ left: 200 }}>2019</a></li>
+                      <li><a href="#" data-date="20/10/2017" style={{ left: 200 }}>2020</a></li>
+                      <li><a href="#" data-date="20/02/2018" style={{ left: 200 }}>2022</a></li>
+                      <li><a href="#" data-date="20/04/2018" style={{ left: 200 }}>2023</a></li>
+                      <li><a href="#" data-date="20/10/2018" style={{ left: 200 }}>2026</a></li>
                     </ol>
                     <span className="filling-line" aria-hidden="true"></span>
                   </div>

@@ -99,10 +99,10 @@ export default function PortfolioSection({ initialPortfolios, totalCount }: Port
                 );
               })}
             </div>
-            <button className="circle ini-customPrevBtn" id="team-circle-left">
+            <button className="circle ini-customPrevBtn" id="team-circle-left" suppressHydrationWarning>
               <i className="lni-chevron-left"></i>
             </button>
-            <button className="circle ini-customNextBtn" id="team-circle-right">
+            <button className="circle ini-customNextBtn" id="team-circle-right" suppressHydrationWarning>
               <i className="lni-chevron-right"></i>
             </button>
           </div>

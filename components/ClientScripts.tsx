@@ -6,6 +6,7 @@ declare global {
   interface Window {
     __phScriptsLoaded?: boolean;
     loadPortfolio?: () => void;
+    initPHScripts?: () => void;
   }
 }
 
@@ -36,12 +37,19 @@ export default function ClientScripts() {
     if (scriptsStarted.current || typeof window === "undefined") return;
     scriptsStarted.current = true;
 
+    const runLegacyInitializers = () => {
+      if (typeof window.initPHScripts === "function") {
+        window.initPHScripts();
+      }
+      if (typeof window.loadPortfolio === "function") {
+        window.loadPortfolio();
+      }
+    };
+
     if (window.__phScriptsLoaded) {
-      if (window.loadPortfolio) window.loadPortfolio();
+      runLegacyInitializers();
       return;
     }
-
-    window.__phScriptsLoaded = true;
 
     const chain = async () => {
       await loadScript("/vendor/js/bundle.min.js");
@@ -52,10 +60,16 @@ export default function ClientScripts() {
       await loadScript("/personal-hotspot/js/timeline.js");
       await loadScript("/vendor/js/contact_us.js");
       await loadScript("/personal-hotspot/js/script.js");
-      if (window.loadPortfolio) window.loadPortfolio();
+
+      // Mark as loaded only after the full chain succeeds.
+      window.__phScriptsLoaded = true;
+      runLegacyInitializers();
     };
 
-    chain().catch(console.error);
+    chain().catch((error) => {
+      window.__phScriptsLoaded = false;
+      console.error(error);
+    });
 
     return () => {
       document.body.removeAttribute("data-spy");

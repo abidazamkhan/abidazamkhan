@@ -8,7 +8,7 @@ export default function ContactForm() {
               <span className="text-yellow d-block text-uppercase"> Contact Me </span> 
               <span> Lets Get In Touch </span>
             </h3>
-            <p className="py-2 alt-font">I am available all the time for any project according to my skills.</p>
+            <p className="py-2 alt-font">I am available all the time for any project acording to my skills.</p>
           </div>
           <div className="col-12 col-md-5 text-md-right pt-4 pt-md-0">
             <h2 className="m-0 text-yellow main-font font-weight-bold">hello@abidazam.com</h2>
@@ -29,6 +29,7 @@ export default function ContactForm() {
                   required 
                   id="first_name" 
                   name="firstName" 
+                  suppressHydrationWarning
                 />
               </div>
 
@@ -39,6 +40,7 @@ export default function ContactForm() {
                   placeholder="Contact No" 
                   id="phone" 
                   name="userPhone" 
+                  suppressHydrationWarning
                 />
               </div>
 
@@ -50,6 +52,7 @@ export default function ContactForm() {
                   required 
                   id="email" 
                   name="userEmail" 
+                  suppressHydrationWarning
                 />
               </div>
             </div>
@@ -70,6 +73,7 @@ export default function ContactForm() {
                 <button 
                   type="button" 
                   className="btn btn-medium btn-rounded btn-yellow text-capitalize contact_btn"
+                  suppressHydrationWarning
                 >
                   Contact Now
                 </button>
