@@ -143,6 +143,7 @@ const PortfolioModal = ({ item, onClose }: { item: PortfolioItem; onClose: () =>
         backdropFilter: "blur(5px)",
         zIndex: 9999,
         padding: "20px",
+        width: "100%",
       }}
       onClick={onClose}
     >
@@ -158,8 +159,11 @@ const PortfolioModal = ({ item, onClose }: { item: PortfolioItem; onClose: () =>
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div style={{ position: "relative" }}>
-          {/* Close button */}
+        
+
+        {/* Content */}
+        <div style={{ padding: "30px" }}>
+            {/* Close button */}
           <button
             onClick={onClose}
             style={{
@@ -182,6 +186,16 @@ const PortfolioModal = ({ item, onClose }: { item: PortfolioItem; onClose: () =>
           >
             ×
           </button>
+          <h2 style={{ color: "#dabd1d", marginTop: 0, marginBottom: "10px", fontSize: "28px" }}>
+            {item?.title?.toUpperCase() || "Untitled"}
+          </h2>
+
+          <h3 style={{ color: "#ffffff", marginTop: "20px", marginBottom: "10px" , fontSize: "18px"}}>
+            {item?.howItWorks?.toUpperCase() || ""}
+          </h3>
+
+          <div style={{ position: "relative" }}>
+        
 
           {/* Image */}
           <img
@@ -195,17 +209,7 @@ const PortfolioModal = ({ item, onClose }: { item: PortfolioItem; onClose: () =>
             }}
           />
         </div>
-
-        {/* Content */}
-        <div style={{ padding: "30px" }}>
-          <h2 style={{ color: "#dabd1d", marginTop: 0, marginBottom: "10px", fontSize: "28px" }}>
-            {item.title}
-          </h2>
           
-          <p style={{ color: "#999", marginBottom: "20px", fontSize: "14px" }}>
-            {item.category?.[0] && `Category: ${item.category[0]}`}
-            {item.publishedAt && ` • ${new Date(item.publishedAt).toLocaleDateString()}`}
-          </p>
 
           <h3 style={{ color: "#dabd1d", marginTop: "20px", marginBottom: "10px" }}>About Project</h3>
           <p style={{ color: "#ccc", lineHeight: "1.6", marginBottom: "20px" }}>
