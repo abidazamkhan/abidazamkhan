@@ -326,16 +326,16 @@ export default function Home() {
                 <p className="alt-font">My Mail ID</p>
               </div>
             </div>
-            <form className="contact-form" id="contact-form-data">
+            <form className="contact-form" id="contact-form-data" suppressHydrationWarning>
               <div className="row pt-3">
                 <div className="col-12"><div className="col-sm-12 px-0" id="result"></div></div>
                 <div className="col-md-4">
-                  <div className="form-group"><input className="form-control" type="text" placeholder="Name" required id="first_name" name="firstName" /></div>
-                  <div className="form-group"><input className="form-control" type="tel" placeholder="Contact No" id="phone" name="userPhone" /></div>
-                  <div className="form-group"><input className="form-control" type="email" placeholder="Email" required id="email" name="userEmail" /></div>
+                  <div className="form-group"><input className="form-control" type="text" placeholder="Name" required id="first_name" name="firstName" suppressHydrationWarning /></div>
+                  <div className="form-group"><input className="form-control" type="tel" placeholder="Contact No" id="phone" name="userPhone" suppressHydrationWarning /></div>
+                  <div className="form-group"><input className="form-control" type="email" placeholder="Email" required id="email" name="userEmail" suppressHydrationWarning /></div>
                 </div>
                 <div className="col-12 col-md-6 offset-md-1 contact-form"><div className="form-group"><textarea className="form-control" placeholder="Type Your Message Here" id="message" name="userMessage"></textarea></div></div>
-                <div className="col-12 px-md-0"><div className="contact-btn pt-5 text-center text-lg-left"><button type="button" className="btn btn-medium btn-rounded btn-yellow text-capitalize contact_btn">Contact Now</button></div></div>
+                <div className="col-12 px-md-0"><div className="contact-btn pt-5 text-center text-lg-left"><button type="button" className="btn btn-medium btn-rounded btn-yellow text-capitalize contact_btn" suppressHydrationWarning>Contact Now</button></div></div>
               </div>
             </form>
           </div>
