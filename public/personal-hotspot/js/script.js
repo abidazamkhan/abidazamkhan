@@ -72,16 +72,7 @@ function initScripts() {
         });
     }
 
-    /* ===================================
-               Loading Timeout
-        ====================================== */
-
     $('.side-menu').removeClass('hidden');
-
-    setTimeout(function(){
-        $('.loader-bg').fadeToggle();
-
-    }, 1500);
 
     // $('.navbar-collapse .navbar-nav .nav-link:nth-child(1)').addClass('active');
     $('.navbar-collapse .navbar-nav .nav-link:nth-child(2)').removeClass('active');

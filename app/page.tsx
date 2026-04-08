@@ -20,25 +20,6 @@ export default function Home() {
         {`document.body.setAttribute('data-spy','scroll');document.body.setAttribute('data-target','.navbar');document.body.setAttribute('data-offset','90');`}
       </Script>
 
-      <div className="loader-bg">
-        <div id="container">
-          <svg viewBox="0 0 100 100">
-            <defs>
-              <filter id="shadow">
-                <feDropShadow dx="0" dy="0" stdDeviation="0.5" floodColor="#dabd1d" />
-              </filter>
-            </defs>
-            <circle
-              id="spinner"
-              style={{ fill: "transparent", stroke: "#dabd1d", strokeWidth: "8px", strokeLinecap: "round", filter: "url(#shadow)" }}
-              cx="50"
-              cy="50"
-              r="45"
-            />
-          </svg>
-        </div>
-      </div>
-
       <header>
         <nav className="navbar navbar-top-default navbar-expand-lg navbar-simple nav-line">
           <a href="#home" title="Logo" className="logo">
