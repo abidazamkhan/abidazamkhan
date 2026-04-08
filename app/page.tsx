@@ -1,3 +1,4 @@
+import PortfolioSection from "@/components/PortfolioSection";
 import { Metadata } from "next";
 import Script from "next/script";
 
@@ -596,7 +597,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="section slide4 portfolio-bg" id="portfolio">
+        {/* <section className="section slide4 portfolio-bg" id="portfolio">
           <div className="container">
             <div className="row pb-5 heading-row">
               <div className="col-12 col-md-7">
@@ -629,8 +630,8 @@ export default async function Home() {
               </div>
             </div>
           </div>
-        </section>
-
+        </section> */}
+<PortfolioSection portfolio={portfolio} />
         <section className="section slide6 testimonial-bg" id="testimonial">
           <div className="container">
             <div className="row pb-5 heading-row">
