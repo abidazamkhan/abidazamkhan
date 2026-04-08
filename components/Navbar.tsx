@@ -65,12 +65,13 @@ export default function Navbar() {
 
           <div className="side-footer w-100">
             <ul className="social-icons-simple">
-              <li><a className="social-icon" href="#"><i className="fab fa-facebook-f"></i> </a> </li>
-              <li><a className="social-icon" href="#"><i className="fab fa-instagram"></i> </a> </li>
+              <li><a className="social-icon" href="#"><i className="fab fa-upwork"></i> </a> </li>
+              <li><a className="social-icon" href="#"><i className="fab fa-github"></i> </a> </li>
               <li><a className="social-icon" href="#"><i className="fab fa-x-twitter"></i> </a> </li>
               <li><a className="social-icon" href="#"><i className="fab fa-linkedin-in"></i> </a> </li>
+              <li><a className="social-icon" href="#"><i className="fab fa-facebook-f"></i> </a> </li>
             </ul>
-            <p>&copy; 2024 MegaOne. Made With Love by Themesindustry</p>
+            <p>&copy; 2026 Abid Azam Khan. Made With Love by UNIPIXER</p>
           </div>
         </div>
       </div>

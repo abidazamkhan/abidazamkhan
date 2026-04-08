@@ -1,5 +1,3 @@
-"use client";
-
 export default function ContactForm() {
   return (
     <section className="section slide5 contact-bg" id="contact">
@@ -13,8 +11,8 @@ export default function ContactForm() {
             <p className="py-2 alt-font">I am available all the time for any project according to my skills.</p>
           </div>
           <div className="col-12 col-md-5 text-md-right pt-4 pt-md-0">
-            <h2 className="m-0 text-yellow main-font font-weight-bold">MEGA.ONE</h2>
-            <p className="alt-font">My Skype ID</p>
+            <h2 className="m-0 text-yellow main-font font-weight-bold">hello@abidazam.com</h2>
+            <p className="alt-font">My Mail ID</p>
           </div>
         </div>
         <form className="contact-form" id="contact-form-data">

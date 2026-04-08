@@ -17,7 +17,7 @@ const Hero = () => {
                 <span className="d-block text-yellow"> Abid Azam Khan.</span>
               </h1>
               <p className="pt-3 alt-font content-para">
-                Specialized in UI/UX, Branding and digital designs. 12+ years of experience in creating premium digital experiences.
+                I am a Top Rated Full Stack Developer in Upwork with over a decade of industry experience. I specialize in delivering high-performance web and mobile applications using React, Next.js, Angular, Node, and Laravel.
               </p>
             </div>
           </div>

@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-
 type PortfolioRecord = {
   thumbnail?: string;
   images?: string[];
@@ -19,50 +15,6 @@ interface PortfolioSectionProps {
 }
 
 export default function PortfolioSection({ initialPortfolios, totalCount }: PortfolioSectionProps) {
-  const carouselRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // This function will be called by ClientScripts once scripts are loaded
-    const initCarousel = () => {
-      const $ = (window as unknown as { $?: unknown }).$ as
-        | {
-          (s: string | HTMLElement): {
-            trigger: (e: string) => unknown;
-            off: (e: string) => { on: (e: string, f: () => void) => unknown };
-            owlCarousel: (o: object) => unknown;
-          };
-          fn: { owlCarousel: unknown };
-        }
-        | undefined;
-
-      if ($ && $.fn.owlCarousel && carouselRef.current) {
-        $(carouselRef.current).trigger("destroy.owl.carousel");
-        $(carouselRef.current).owlCarousel({
-          loop: true,
-          margin: 30,
-          nav: false,
-          dots: false,
-          responsive: { 0: { items: 1 }, 768: { items: 2 }, 992: { items: 3 } },
-        });
-
-        $("#team-circle-left").off("click").on("click", () => {
-          $(carouselRef.current!).trigger("prev.owl.carousel");
-        });
-        $("#team-circle-right").off("click").on("click", () => {
-          $(carouselRef.current!).trigger("next.owl.carousel");
-        });
-      }
-    };
-
-    // Export to window so ClientScripts can call it after loading scripts
-    window.loadPortfolio = initCarousel;
-
-    // Check if scripts are already loaded
-    if (window.__phScriptsLoaded) {
-      initCarousel();
-    }
-  }, []);
-
   return (
     <section className="section slide4 portfolio-bg" id="portfolio">
       <div className="container">
@@ -86,9 +38,8 @@ export default function PortfolioSection({ initialPortfolios, totalCount }: Port
             <div
               className="team-classic owl-team owl-carousel text-center"
               id="portfolio-carousel"
-              ref={carouselRef}
             >
-              {initialPortfolios.map((portfolio, index) => {
+              {initialPortfolios.map((portfolio: PortfolioRecord, index: number) => {
                 const imageUrl =
                   portfolio.thumbnail ||
                   (portfolio.images && portfolio.images.length > 0

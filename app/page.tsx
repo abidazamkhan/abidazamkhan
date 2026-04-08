@@ -8,16 +8,15 @@ import About from "@/components/About";
 import Timeline from "@/components/Timeline";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
-import Loader from "@/components/Loader";
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
-  title: "Abid Azam Khan | Freelance UX Designer & Web Developer",
-  description: "Explore the portfolio of Abid Azam Khan, a specialized UI/UX Designer and Digital Creative Director with over 12 years of experience in web design, marketing, and development.",
-  keywords: "UX Design, UI Design, Product Designer, Digital Creative Director, Web Development, Portfolio, Abid Azam Khan",
+  title: "Abid Azam Khan | Full-Stack Web, Mobile & Desktop App Developer",
+  description: "Senior Software Engineer & CEO of UNIPIXER. Specializing in high-performance web, mobile & desktop apps using React, Next.js, Node.js & secure APIs.",
+  keywords: "Abid Azam Khan, Full-Stack Developer, Web Developer, Mobile App Developer, Desktop App Developer, Senior Software Engineer, System Architect, UNIPIXER, React, Next.js, Angular, React Native, Flutter, Electron.js, Node.js, C# ASP.NET, Laravel, Custom Software Development",
   openGraph: {
     title: "Abid Azam Khan | Portfolio",
-    description: "Digital Creative Director & Product Designer with 12+ years of experience.",
+    description: "Senior Software Engineer & CEO of UNIPIXER. Digital Creative Director & Product Designer with 10+ years of experience.",
     images: ["/personal-hotspot/images/slider-img.png"],
   },
 };
@@ -54,7 +53,6 @@ export default async function Home() {
         }}
       />
 
-      <Loader />
 
       <Navbar />
 
