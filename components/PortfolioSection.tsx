@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { hasHtmlContent, toSafeHtml } from "@/utils/html-render";
 import { getTechIcon } from "@/utils/techicon";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 
 type PortfolioItem = {
   category: string[];
@@ -186,10 +188,8 @@ const PortfolioModal = ({
     "/personal-hotspot/images/portfolio-placeholder.jpg";
   const technologies = (item.technologies || []).slice(0, 12);
   const tags = getTagItems(item.tags);
-  const gallery = [
-    imageUrl,
-    ...(item.images || []).filter((img) => img && img !== imageUrl),
-  ].slice(0, 2);
+  const sliderImages = item?.images || []
+  const hasMultipleSlides = sliderImages.length > 1;
   const quoteText = stripHtml(item.quote || item.howItWorks || "").replace(
     /^"+|"+$/g,
     "",
@@ -297,15 +297,33 @@ const PortfolioModal = ({
             </blockquote>
           )}
 
-          <div className="mb-7 grid gap-6 md:grid-cols-2">
-            {item?.images?.map((image, index) => (
-              <img
-                key={`${image}-${index}`}
-                src={image}
-                alt={`${item.title || "Portfolio"} preview ${index + 1}`}
-                className="h-60 w-full rounded-2xl border border-[#393939] object-cover"
-              />
-            ))}
+          <div className="mb-7">
+            <Swiper
+              modules={[Pagination]}
+              key={item.id}
+              className="portfolio-image-slider"
+              slidesPerView={2}
+              spaceBetween={16}
+              allowTouchMove={hasMultipleSlides}
+              grabCursor={hasMultipleSlides}
+              loop={hasMultipleSlides}
+              // pagination={hasMultipleSlides ? { clickable: true } : false}
+              breakpoints={{
+                0: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+              }}
+            >
+              {sliderImages.map((image, index) => (
+                <SwiperSlide key={`${image}-${index}`}>
+                  <img
+                    src={image}
+                    alt={`${item.title || "Portfolio"} preview ${index + 1}`}
+                    className="h-60 w-full rounded-2xl object-cover select-none"
+                    draggable={false}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
 
           {hasHtmlContent(processSource) && (

@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/pagination";
 
 .raw-html-content ul {
 	list-style: disc outside !important;
