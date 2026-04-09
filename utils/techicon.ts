@@ -117,8 +117,11 @@ export const techIconList = [
   { name: "webrtc", icon: SiWebrtc, color: "#2255FF" },
 ];
 
-export const getTechIcon = (tech: string) => {
-  const normalized = tech.toLowerCase().replace(/\s/g, "");
+const normalizeTechName = (value: string) =>
+  value.toLowerCase().replace(/[^a-z0-9+]/g, "");
 
-  return techIconList.find((t) => t.name === normalized);
+export const getTechIcon = (tech: string) => {
+  const normalized = normalizeTechName(tech);
+
+  return techIconList.find((t) => normalizeTechName(t.name) === normalized);
 };

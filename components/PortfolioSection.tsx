@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { hasHtmlContent, toSafeHtml } from "@/utils/html-render";
+import { getTechIcon } from "@/utils/techicon";
 
 type PortfolioItem = {
   category: string[];
@@ -26,7 +27,10 @@ type PortfolioItem = {
 };
 
 const stripHtml = (value: string) =>
-  value.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  value
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 
 const getPortfolioSummary = (item: PortfolioItem) => {
   const source = item.processResults || item.howItWorks || "";
@@ -192,8 +196,7 @@ const PortfolioModal = ({
   );
   const keyFeaturesSource = item.feature || item.keyFeatures || item.howItWorks;
   const processSource = item.processResults;
-  const developmentSource =
-    item.development || item.challengesAndDevelopment;
+  const developmentSource = item.development || item.challengesAndDevelopment;
 
   return (
     <div
@@ -216,7 +219,7 @@ const PortfolioModal = ({
           <p className="mt-0 mb-2 text-[35px] leading-tight text-[#dabd1d]">
             {item?.title?.toUpperCase() || "Untitled"}
           </p>
-           <p className="mb-4 text-base leading-8 text-[#d0d0d0]">
+          <p className="mb-4 text-base leading-8 text-[#d0d0d0]">
             {stripHtml(item.howItWorks || "") ||
               "This project combines clean UX and scalable engineering to solve real user problems."}
           </p>
@@ -228,8 +231,8 @@ const PortfolioModal = ({
               className="h-auto w-full object-cover"
             />
           </div>
-         
-{/* 
+
+          {/* 
           <p className="mb-6 text-[13px] uppercase tracking-[0.08em] text-[#b6b6b6]">
             {item.category?.[0] || "Project"}
             {item.publishedAt
@@ -246,16 +249,39 @@ const PortfolioModal = ({
           )}
 
           {technologies.length > 0 && (
-            <div className="mb-5 flex flex-wrap gap-2">
-              {technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full border border-[#474747] bg-[#ebebeb] px-3 py-2 text-sm font-medium text-[#4e4e4e]"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+            <>
+              <h3 className="mt-2 mb-2 text-[36px] leading-tight text-[#dabd1d]">
+                Languages And Frameworks
+              </h3>
+
+              <div className="mb-5 flex flex-wrap items-center gap-2">
+                {technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-[#474747] bg-gray-300 px-3 py-1.5 font-medium text-gray-900"
+                    style={{
+                      display: "inline-flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}
+                  >
+                    {(() => {
+                      const techMeta = getTechIcon(tech);
+                      const Icon = techMeta?.icon;
+
+                      return Icon ? (
+                        <Icon
+                          aria-hidden="true"
+                          className="shrink-0 text-xl"
+                          style={{ color: techMeta.color }}
+                        />
+                      ) : null;
+                    })()}
+                    <span className="whitespace-nowrap">{tech}</span>
+                  </span>
+                ))}
+              </div>
+            </>
           )}
 
           {quoteText && (
@@ -272,7 +298,7 @@ const PortfolioModal = ({
           )}
 
           <div className="mb-7 grid gap-6 md:grid-cols-2">
-            {gallery.map((image, index) => (
+            {item?.images?.map((image, index) => (
               <img
                 key={`${image}-${index}`}
                 src={image}
