@@ -208,7 +208,28 @@ const PortfolioModal = ({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative p-6 sm:p-8">
-          <div className="absolute right-4 top-4 z-10 flex items-center gap-2">
+          <div className="absolute right-2 top-4 z-10 flex items-center gap-2">
+            {item.liveUrl && (
+              <a
+                href={item.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-9 items-center justify-center rounded-full border border-[#6d5b1a] bg-linear-to-r from-[#d8ba1a] to-[#c9a611] px-4 text-xs font-bold uppercase tracking-[0.08em] text-[#141414] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_rgba(218,189,29,0.3)]"
+              >
+                View Live
+              </a>
+            )}
+            <button
+              onClick={onClose}
+              type="button"
+              aria-label="Close modal"
+              className="inline-flex h-9 w-9 items-center justify-center bg-[#1f1f1f] rounded-full text-lg font-semibold text-red-600 transition duration-200 hover:bg-[#2a2a2a] hover:text-white"
+            >
+              ×
+            </button>
+          </div>
+
+           <div className="absolute right-2 top-4 z-10 flex items-center gap-2">
             {item.liveUrl && (
               <a
                 href={item.liveUrl}

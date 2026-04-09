@@ -24,7 +24,6 @@ const normalizeHtml = (value: string) => {
     return sanitizeHtml(raw);
   }
 
-  // Raw mode for non-HTML input: keep the content as plain escaped text.
   return escapeHtml(raw);
 };
 
