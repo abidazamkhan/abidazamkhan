@@ -208,6 +208,16 @@ const PortfolioModal = ({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative p-6 sm:p-8">
+           {item.liveUrl && (
+              <a
+                href={item.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute right-16 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-[#4b4b4b] bg-[#1f1f1f] text-xl text-[#f4f4f4] transition hover:border-[#6b6b6b] hover:bg-[#272727]"
+              >
+                View Live
+              </a>
+            )}
           <button
             onClick={onClose}
             type="button"
@@ -215,6 +225,7 @@ const PortfolioModal = ({
           >
             x
           </button>
+
 
           <p className="mt-0 mb-2 text-[35px] leading-tight text-[#dabd1d]">
             {item?.title?.toUpperCase() || "Untitled"}
@@ -341,11 +352,11 @@ const PortfolioModal = ({
           )}
 
           {tags.length > 0 && (
-            <div className="mb-5 flex flex-wrap gap-1.5">
+            <div className="mb-6 flex flex-wrap gap-2">
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="border border-[#474747] bg-[#1d1d1d] px-2.5 py-1 text-xs lowercase text-[#c4c4c4]"
+                  className="rounded-full border border-[#5a4a1c] bg-linear-to-r from-[#1f1a0d] to-[#151515] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#e6d27a] transition duration-200 hover:border-[#dabd1d] hover:text-[#f6df77]"
                 >
                   {tag}
                 </span>
@@ -353,21 +364,11 @@ const PortfolioModal = ({
             </div>
           )}
 
-          <div className="flex flex-wrap gap-2.5">
-            {item.liveUrl && (
-              <a
-                href={item.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md border border-[#454545] bg-[#111111] px-5 py-3 font-semibold text-white no-underline transition hover:bg-[#1b1b1b]"
-              >
-                View Live
-              </a>
-            )}
+          <div className="flex flex-wrap justify-end gap-2.5">
             <button
               onClick={onClose}
               type="button"
-              className="inline-flex items-center justify-center rounded-md border border-[#454545] bg-[#1b1b1b] px-5 py-3 font-semibold text-[#f0f0f0] transition hover:bg-[#242424]"
+              className="inline-flex items-center justify-center rounded-full border border-[#8d7415] bg-linear-to-r from-[#d8ba1a] via-[#e7c848] to-[#cfaf14] px-6 py-2.5 text-sm font-bold uppercase tracking-[0.08em] text-[#111111] shadow-[0_8px_20px_rgba(218,189,29,0.3)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_26px_rgba(218,189,29,0.4)]"
             >
               Close
             </button>
