@@ -26,7 +26,6 @@ import {
   SiBootstrap,
   SiSass,
   SiVuedotjs,
-  SiNuxtdotjs,
   SiAngular,
   SiJquery,
   SiFlutter,
@@ -52,7 +51,7 @@ export const techIconList = [
   { name: "react", icon: FaReact, color: "#61DAFB" },
   { name: "nextjs", icon: SiNextdotjs, color: "#000000" },
   { name: "vue", icon: SiVuedotjs, color: "#4FC08D" },
-  { name: "nuxtjs", icon: SiNuxtdotjs, color: "#00DC82" },
+  { name: "nuxtjs", icon: SiNextdotjs, color: "#00DC82" },
   { name: "angular", icon: SiAngular, color: "#DD0031" },
 
   // ================= STYLING =================

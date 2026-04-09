@@ -52,7 +52,7 @@ const RawHtmlBlock = ({ html }: { html: string }) => {
 
   return (
     <div
-      style={{ all: "revert", display: "block" }}
+      className="raw-html-content leading-7 text-gray-300"
       dangerouslySetInnerHTML={toSafeHtml(html)}
     />
   );
@@ -63,9 +63,12 @@ const PortfolioSection = ({ portfolio }: { portfolio: PortfolioItem[] }) => {
 
   return (
     <>
-      <section className="section slide4 portfolio-bg" id="portfolio">
+      <section
+        id="portfolio"
+        className="section slide4 portfolio-bg scroll-mt-24"
+      >
         <div className="container">
-          <div className="row pb-5 heading-row">
+          <div className="row pb-5 heading-row items-end gap-y-4">
             <div className="col-12 col-md-7">
               <h3 className="main-font text-uppercase">
                 <span className="text-yellow d-block"> PORTFOLIO </span>{" "}
@@ -126,25 +129,18 @@ const PortfolioCard = ({
 
   return (
     <div className="item">
-      <div className="team-data-img">
+      <div className="team-data-img group">
         <button
           onClick={onOpen}
           type="button"
-          style={{
-            background: "none",
-            border: "none",
-            padding: 0,
-            cursor: "pointer",
-            width: "100%",
-          }}
+          className="w-full cursor-pointer border-0 bg-transparent p-0 text-left"
         >
-          <div className="single-work">
+          <div className="single-work overflow-hidden rounded-2xl">
             <img
               src={imageUrl}
               alt={item.title || "Portfolio item"}
-              className="img-responsive"
+              className="img-responsive w-full transition-transform duration-300 group-hover:scale-[1.02]"
               data-no-retina
-              style={{ cursor: "pointer" }}
             />
             <div className="overlay-text center-block">
               <div className="cases-image-inner">
@@ -159,15 +155,11 @@ const PortfolioCard = ({
             </div>
           </div>
         </button>
-        <div className="portfolio-content">
+        <div className="portfolio-content mt-4 text-left">
           <h5 className="text-yellow main-font mb-2 text-uppercase">
             {item?.title || "Untitled"}
           </h5>
-          <p
-            className="text-capitalize"
-            style={{ cursor: "pointer" }}
-            onClick={onOpen}
-          >
+          <p className="cursor-pointer text-capitalize" onClick={onOpen}>
             {getPortfolioSummary(item).slice(0, 100)}...
           </p>
         </div>
@@ -204,124 +196,49 @@ const PortfolioModal = ({
     item.development || item.challengesAndDevelopment;
 
   return (
-    <div className="w-full"
-      style={{
-        position: "fixed",
-        inset: 0,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "rgba(17, 17, 17, 0.68)",
-        backdropFilter: "blur(4px)",
-        zIndex: 9999,
-        padding: "20px",
-        width: "100%",
-      }}
+    <div
+      className="fixed inset-0 z-9999 flex w-full items-center justify-center bg-black/70 p-4 backdrop-blur-md"
       onClick={onClose}
     >
       <div
-        style={{
-          position: "relative",
-          backgroundColor: "#111111",
-          borderRadius: "14px",
-          maxWidth: "980px",
-          width: "100%",
-          maxHeight: "90vh",
-          overflow: "auto",
-          border: "1px solid #393939",
-          boxShadow: "0 24px 60px rgba(0, 0, 0, 0.28)",
-        }}
+        className="relative max-h-[90vh] w-full max-w-5xl overflow-auto rounded-2xl border border-[#393939] bg-[#111111] shadow-[0_24px_60px_rgba(0,0,0,0.28)]"
         onClick={(e) => e.stopPropagation()}
       >
-        <div style={{ padding: "32px 36px" }}>
+        <div className="relative p-6 sm:p-8">
           <button
             onClick={onClose}
-            style={{
-              position: "absolute",
-              top: "18px",
-              right: "18px",
-              background: "#1f1f1f",
-              border: "1px solid #4b4b4b",
-              borderRadius: "50%",
-              width: "36px",
-              height: "36px",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "20px",
-              zIndex: 10,
-              color: "#f4f4f4",
-            }}
+            type="button"
+            className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-[#4b4b4b] bg-[#1f1f1f] text-xl text-[#f4f4f4] transition hover:border-[#6b6b6b] hover:bg-[#272727]"
           >
             x
           </button>
 
-          <h2 className=""
-            style={{
-              color: "#dabd1d",
-              marginTop: 0,
-              marginBottom: "8px",
-              fontSize: "35px",
-              lineHeight: 1.2,
-            }}
-          >
+          <p className="mt-0 mb-2 text-[35px] leading-tight text-[#dabd1d]">
             {item?.title?.toUpperCase() || "Untitled"}
-          </h2>
-
-          <div>
-            <img src={item?.coverImage || item?.thumbnail} alt="thumbnail" />
-          </div>
-
-          <p
-            style={{
-              color: "#b6b6b6",
-              marginBottom: "22px",
-              fontSize: "13px",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-            }}
-          >
-            {item.category?.[0] || "Project"}
-            {item.publishedAt
-              ? ` - ${new Date(item.publishedAt).toLocaleDateString()}`
-              : ""}
           </p>
-
-          <h3
-            style={{
-              color: "#dabd1d",
-              marginTop: "10px",
-              marginBottom: "10px",
-              fontSize: "36px",
-              lineHeight: 1.2,
-            }}
-          >
-            How it Works
-          </h3>
-          <p
-            style={{
-              color: "#d0d0d0",
-              lineHeight: "1.8",
-              marginBottom: "16px",
-              fontSize: "16px",
-            }}
-          >
+           <p className="mb-4 text-base leading-8 text-[#d0d0d0]">
             {stripHtml(item.howItWorks || "") ||
               "This project combines clean UX and scalable engineering to solve real user problems."}
           </p>
 
+          <div className="mb-4 overflow-hidden rounded-2xl border border-[#393939] bg-black/20">
+            <img
+              src={item?.coverImage || item?.thumbnail || imageUrl}
+              alt={item?.title || "thumbnail"}
+              className="h-auto w-full object-cover"
+            />
+          </div>
+         
+{/* 
+          <p className="mb-6 text-[13px] uppercase tracking-[0.08em] text-[#b6b6b6]">
+            {item.category?.[0] || "Project"}
+            {item.publishedAt
+              ? ` - ${new Date(item.publishedAt).toLocaleDateString()}`
+              : ""}
+          </p> */}
           {hasHtmlContent(keyFeaturesSource) && (
             <>
-              <h3
-                style={{
-                  color: "#dabd1d",
-                  marginTop: "8px",
-                  marginBottom: "8px",
-                  fontSize: "36px",
-                  lineHeight: 1.2,
-                }}
-              >
+              <h3 className="mt-2 mb-2 text-[36px] leading-tight text-[#dabd1d]">
                 Key Features
               </h3>
               <RawHtmlBlock html={keyFeaturesSource || ""} />
@@ -329,26 +246,11 @@ const PortfolioModal = ({
           )}
 
           {technologies.length > 0 && (
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "8px",
-                marginBottom: "20px",
-              }}
-            >
+            <div className="mb-5 flex flex-wrap gap-2">
               {technologies.map((tech) => (
                 <span
                   key={tech}
-                  style={{
-                    backgroundColor: "#ebebeb",
-                    color: "#4e4e4e",
-                    padding: "7px 12px",
-                    borderRadius: "999px",
-                    fontSize: "14px",
-                    fontWeight: 500,
-                    border: "1px solid #474747",
-                  }}
+                  className="rounded-full border border-[#474747] bg-[#ebebeb] px-3 py-2 text-sm font-medium text-[#4e4e4e]"
                 >
                   {tech}
                 </span>
@@ -357,72 +259,32 @@ const PortfolioModal = ({
           )}
 
           {quoteText && (
-            <blockquote
-              style={{
-                margin: "14px 0 26px",
-                padding: "8px 0 8px 26px",
-                borderLeft: "4px solid #dabd1d",
-                color: "#efefef",
-                fontSize: "40px",
-                fontWeight: 700,
-                lineHeight: 1.35,
-              }}
-            >
+            <blockquote className="my-4 border-l-4 border-[#dabd1d] py-2 pl-6 text-[40px] font-bold leading-[1.35] text-[#efefef]">
               {quoteText.length > 170
                 ? `${quoteText.slice(0, 170).trim()}...`
                 : quoteText}
               {(item.quoteAuthor || item.client) && (
-                <div
-                  style={{
-                    marginTop: "18px",
-                    fontSize: "14px",
-                    fontWeight: 700,
-                    letterSpacing: "0.08em",
-                    color: "#9f9f9f",
-                    textTransform: "uppercase",
-                  }}
-                >
+                <div className="mt-4 text-sm font-bold uppercase tracking-[0.08em] text-[#9f9f9f]">
                   {item.quoteAuthor || item.client}
                 </div>
               )}
             </blockquote>
           )}
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: "24px",
-              marginBottom: "28px",
-            }}
-          >
+          <div className="mb-7 grid gap-6 md:grid-cols-2">
             {gallery.map((image, index) => (
               <img
                 key={`${image}-${index}`}
                 src={image}
                 alt={`${item.title || "Portfolio"} preview ${index + 1}`}
-                style={{
-                  width: "100%",
-                  height: "240px",
-                  objectFit: "cover",
-                  borderRadius: "14px",
-                  border: "1px solid #393939",
-                }}
+                className="h-60 w-full rounded-2xl border border-[#393939] object-cover"
               />
             ))}
           </div>
 
           {hasHtmlContent(processSource) && (
             <>
-              <h3
-                style={{
-                  color: "#dabd1d",
-                  marginTop: "6px",
-                  marginBottom: "8px",
-                  fontSize: "36px",
-                  lineHeight: 1.2,
-                }}
-              >
+              <h3 className="mt-1 mb-2 text-[36px] leading-tight text-[#dabd1d]">
                 Process & Results
               </h3>
               <RawHtmlBlock html={processSource || ""} />
@@ -431,15 +293,7 @@ const PortfolioModal = ({
 
           {hasHtmlContent(developmentSource) && (
             <>
-              <h3
-                style={{
-                  color: "#dabd1d",
-                  marginTop: "6px",
-                  marginBottom: "8px",
-                  fontSize: "36px",
-                  lineHeight: 1.2,
-                }}
-              >
+              <h3 className="mt-1 mb-2 text-[36px] leading-tight text-[#dabd1d]">
                 Challenges And Development
               </h3>
               <RawHtmlBlock html={developmentSource || ""} />
@@ -447,25 +301,11 @@ const PortfolioModal = ({
           )}
 
           {tags.length > 0 && (
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "6px",
-                marginBottom: "20px",
-              }}
-            >
+            <div className="mb-5 flex flex-wrap gap-1.5">
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  style={{
-                    border: "1px solid #474747",
-                    backgroundColor: "#1d1d1d",
-                    color: "#c4c4c4",
-                    padding: "4px 10px",
-                    fontSize: "12px",
-                    textTransform: "lowercase",
-                  }}
+                  className="border border-[#474747] bg-[#1d1d1d] px-2.5 py-1 text-xs lowercase text-[#c4c4c4]"
                 >
                   {tag}
                 </span>
@@ -473,39 +313,21 @@ const PortfolioModal = ({
             </div>
           )}
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+          <div className="flex flex-wrap gap-2.5">
             {item.liveUrl && (
               <a
                 href={item.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  display: "inline-block",
-                  backgroundColor: "#111111",
-                  color: "#ffffff",
-                  padding: "11px 20px",
-                  borderRadius: "6px",
-                  textDecoration: "none",
-                  fontWeight: 600,
-                  border: "none",
-                  cursor: "pointer",
-                }}
+                className="inline-flex items-center justify-center rounded-md border border-[#454545] bg-[#111111] px-5 py-3 font-semibold text-white no-underline transition hover:bg-[#1b1b1b]"
               >
                 View Live
               </a>
             )}
             <button
               onClick={onClose}
-              style={{
-                display: "inline-block",
-                backgroundColor: "#1b1b1b",
-                color: "#f0f0f0",
-                padding: "11px 20px",
-                borderRadius: "6px",
-                fontWeight: 600,
-                border: "1px solid #454545",
-                cursor: "pointer",
-              }}
+              type="button"
+              className="inline-flex items-center justify-center rounded-md border border-[#454545] bg-[#1b1b1b] px-5 py-3 font-semibold text-[#f0f0f0] transition hover:bg-[#242424]"
             >
               Close
             </button>

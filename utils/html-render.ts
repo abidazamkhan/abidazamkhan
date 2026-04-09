@@ -24,18 +24,8 @@ const normalizeHtml = (value: string) => {
     return sanitizeHtml(raw);
   }
 
-  const lines = raw
-    .split(/\n|\u2022|\*/)
-    .map((line) => line.trim())
-    .filter(Boolean);
-
-  if (lines.length > 1) {
-    return `<ul>${lines
-      .map((line) => `<li>${escapeHtml(line)}</li>`)
-      .join("")}</ul>`;
-  }
-
-  return `<p>${escapeHtml(raw)}</p>`;
+  // Raw mode for non-HTML input: keep the content as plain escaped text.
+  return escapeHtml(raw);
 };
 
 export const hasHtmlContent = (value: HtmlLike) => Boolean(value?.trim());

@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+.raw-html-content ul {
+	list-style: disc outside !important;
+	margin: 1em 0 !important;
+	padding-left: 1.5em !important;
+}
+
+.raw-html-content ol {
+	list-style: decimal outside !important;
+	margin: 1em 0 !important;
+	padding-left: 1.5em !important;
+}
+
+.raw-html-content li {
+	list-style: inherit !important;
+}
