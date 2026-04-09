@@ -204,7 +204,7 @@ const PortfolioModal = ({
     item.development || item.challengesAndDevelopment;
 
   return (
-    <div
+    <div className="w-full"
       style={{
         position: "fixed",
         inset: 0,
@@ -257,7 +257,7 @@ const PortfolioModal = ({
             x
           </button>
 
-          <h2
+          <h2 className=""
             style={{
               color: "#dabd1d",
               marginTop: 0,
@@ -266,8 +266,12 @@ const PortfolioModal = ({
               lineHeight: 1.2,
             }}
           >
-            {item?.title || "Untitled"}
+            {item?.title?.toUpperCase() || "Untitled"}
           </h2>
+
+          <div>
+            <img src={item?.coverImage || item?.thumbnail} alt="thumbnail" />
+          </div>
 
           <p
             style={{
