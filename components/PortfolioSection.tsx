@@ -258,7 +258,7 @@ const PortfolioModal = ({
                 {technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-[#474747] bg-gray-300 px-3 py-1.5 font-medium text-gray-900"
+                    className="inline-flex items-center gap-2 whitespace-nowrap rounded-full  bg-gray-400 px-3 py-1.5 font-medium text-gray-900"
                     style={{
                       display: "inline-flex",
                       flexDirection: "row",
@@ -285,14 +285,10 @@ const PortfolioModal = ({
           )}
 
           {quoteText && (
-            <blockquote className="my-4 border-l-4 border-[#dabd1d] py-2 pl-6 text-[40px] font-bold leading-[1.35] text-[#efefef]">
-              {quoteText.length > 170
-                ? `${quoteText.slice(0, 170).trim()}...`
-                : quoteText}
+            <blockquote className="portfolio-quote">
+              <p>{quoteText}</p>
               {(item.quoteAuthor || item.client) && (
-                <div className="mt-4 text-sm font-bold uppercase tracking-[0.08em] text-[#9f9f9f]">
-                  {item.quoteAuthor || item.client}
-                </div>
+                <cite>— {item.quoteAuthor || item.client}</cite>
               )}
             </blockquote>
           )}
