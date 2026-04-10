@@ -5,6 +5,7 @@ import { hasHtmlContent, toSafeHtml } from "@/utils/html-render";
 import { getTechIcon } from "@/utils/techicon";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import { CgClose } from "react-icons/cg";
 
 type PortfolioItem = {
   category: string[];
@@ -58,7 +59,7 @@ const RawHtmlBlock = ({ html }: { html: string }) => {
 
   return (
     <div
-      className="raw-html-content leading-7 text-gray-300"
+      className="raw-html-content leading-8 text-gray-300"
       dangerouslySetInnerHTML={toSafeHtml(html)}
     />
   );
@@ -141,7 +142,7 @@ const PortfolioCard = ({
           type="button"
           className="w-full cursor-pointer border-0 bg-transparent p-0 text-left"
         >
-          <div className="single-work overflow-hidden rounded-2xl">
+          <div className="single-work overflow-hidden">
             <img
               src={imageUrl}
               alt={item.title || "Portfolio item"}
@@ -223,32 +224,13 @@ const PortfolioModal = ({
               onClick={onClose}
               type="button"
               aria-label="Close modal"
-              className="inline-flex h-9 w-9 items-center justify-center bg-[#1f1f1f] rounded-full text-lg font-semibold text-red-600 transition duration-200 hover:bg-[#2a2a2a] hover:text-white"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full text-lg font-semibold text-white transition duration-200  hover:text-[#c9a611]"
             >
-              ×
+              <CgClose className="hover:text-[#c9a611]" />
             </button>
           </div>
 
-           <div className="absolute right-2 top-4 z-10 flex items-center gap-2">
-            {item.liveUrl && (
-              <a
-                href={item.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-9 items-center justify-center rounded-full border border-[#6d5b1a] bg-linear-to-r from-[#d8ba1a] to-[#c9a611] px-4 text-xs font-bold uppercase tracking-[0.08em] text-[#141414] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_rgba(218,189,29,0.3)]"
-              >
-                View Live
-              </a>
-            )}
-            <button
-              onClick={onClose}
-              type="button"
-              aria-label="Close modal"
-              className="inline-flex h-9 w-9 items-center justify-center bg-[#1f1f1f] rounded-full text-lg font-semibold text-red-600 transition duration-200 hover:bg-[#2a2a2a] hover:text-white"
-            >
-              ×
-            </button>
-          </div>
+        
 
 
           <p className="mt-0 mb-2 text-[35px] leading-tight text-[#dabd1d]">
@@ -259,7 +241,7 @@ const PortfolioModal = ({
               "This project combines clean UX and scalable engineering to solve real user problems."}
           </p>
 
-          <div className="mb-4 overflow-hidden rounded-2xl border border-[#393939] bg-black/20">
+          <div className="mb-4 overflow-hidden bg-black/20">
             <img
               src={item?.coverImage || item?.thumbnail || imageUrl}
               alt={item?.title || "thumbnail"}
@@ -392,7 +374,7 @@ const PortfolioModal = ({
             <button
               onClick={onClose}
               type="button"
-              className="inline-flex items-center justify-center rounded-full border border-[#8d7415] bg-linear-to-r from-[#d8ba1a] via-[#e7c848] to-[#cfaf14] px-6 py-2.5 text-sm font-bold uppercase tracking-[0.08em] text-[#111111] shadow-[0_8px_20px_rgba(218,189,29,0.3)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_26px_rgba(218,189,29,0.4)]"
+              className="inline-flex items-center justify-center rounded-full bg-linear-to-r from-[#d8ba1a] via-[#e7c848] to-[#cfaf14] px-6 py-2.5 text-sm font-bold uppercase tracking-[0.08em] text-[#ffffff] shadow-[0_8px_20px_rgba(218,189,29,0.3)] transition duration-300 hover:shadow-[0_12px_26px_rgba(218,189,29,0.4)]"
             >
               Close
             </button>
