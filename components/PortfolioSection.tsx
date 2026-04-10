@@ -215,7 +215,7 @@ const PortfolioModal = ({
                 href={item.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-9 items-center justify-center rounded-full border border-[#6d5b1a] bg-linear-to-r from-[#d8ba1a] to-[#c9a611] px-4 text-xs font-bold uppercase tracking-[0.08em] text-[#141414] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_rgba(218,189,29,0.3)]"
+                className="inline-flex h-9 items-center justify-center rounded-full border border-[#6d5b1a] bg-linear-to-r from-[#d8ba1a] to-[#c9a611] px-4 text-xs font-semibold uppercase tracking-[0.08em] text-[#ffffff] transition-colors duration-200 hover:text-gray-300!"
               >
                 View Live
               </a>
