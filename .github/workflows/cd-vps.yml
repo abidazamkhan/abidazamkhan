@@ -38,13 +38,13 @@ jobs:
             git checkout main
             git pull --ff-only origin main
 
-            npm install --frozen-lockfile
-            npm build
+            npm ci
+            npm run build
 
             if pm2 describe abid-portfolio > /dev/null; then
               pm2 restart abid-portfolio
             else
-              pm2 start "npm start -- -p 9000" --name abid-portfolio
+              pm2 start "npm run start -- -p 9000" --name abid-portfolio
             fi
 
             pm2 save
