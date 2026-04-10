@@ -59,7 +59,7 @@ const RawHtmlBlock = ({ html }: { html: string }) => {
 
   return (
     <div
-      className="raw-html-content leading-8 text-white"
+      className="raw-html-content leading-7 sm:leading-8 text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 alt-font text-left"
       dangerouslySetInnerHTML={toSafeHtml(html)}
     />
   );
@@ -224,22 +224,22 @@ const PortfolioModal = ({
 
   return (
     <div
-      className="fixed inset-0 z-9999 flex w-full items-center justify-center bg-black/70 p-4 backdrop-blur-md"
+      className="fixed inset-0 z-9999 flex w-full items-center justify-center bg-black/70 p-3 sm:p-4 backdrop-blur-md"
       onClick={onClose}
     >
       <div
         ref={modalContainerRef}
-        className="relative max-h-[90vh] w-full max-w-5xl overflow-auto rounded-2xl border border-[#393939] bg-[#111111] shadow-[0_24px_60px_rgba(0,0,0,0.28)]"
+        className="relative max-h-[95vh] sm:max-h-[90vh] w-full max-w-5xl overflow-auto rounded-xl sm:rounded-2xl border border-[#393939] bg-[#111111] shadow-[0_24px_60px_rgba(0,0,0,0.28)]"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative p-6 pt-16 sm:p-8 sm:pt-16">
-          <div className="absolute right-2 top-4 z-10 flex items-center gap-2">
+        <div className="relative p-4 pt-12 sm:p-8 sm:pt-16 text-left">
+          <div className="absolute right-2 top-3 sm:right-4 sm:top-4 z-10 flex items-center gap-2">
             {item.liveUrl && (
               <a
                 href={item.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-9 items-center justify-center rounded-full border border-[#6d5b1a] bg-linear-to-r from-[#d8ba1a] to-[#c9a611] px-4 text-xs font-semibold uppercase tracking-[0.08em] text-[#ffffff] transition-colors duration-200 hover:text-gray-300!"
+                className="inline-flex h-8 sm:h-9 items-center justify-center rounded-full border border-yellow bg-linear-to-r from-yellow to-yellow px-3 sm:px-4 text-[10px] sm:text-xs font-bold uppercase tracking-[0.08em] text-gray-900 transition-all duration-200 hover:shadow-[0_0_12px_rgba(218,189,29,0.6)]"
               >
                 View Live
               </a>
@@ -248,24 +248,24 @@ const PortfolioModal = ({
               onClick={onClose}
               type="button"
               aria-label="Close modal"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full text-lg font-semibold text-white transition duration-200  hover:text-[#c9a611]"
+              className="inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full text-base sm:text-lg font-semibold text-white transition duration-200 hover:text-yellow hover:bg-[#2a2a2a]"
             >
-              <CgClose className="hover:text-[#c9a611]" />
+              <CgClose className="hover:text-yellow" />
             </button>
           </div>
 
         
 
 
-          <p className="mt-0 mb-2 text-[35px] leading-tight text-[#dabd1d]">
+          <p className="mt-0 mb-2 sm:mb-4 text-[26px] sm:text-[36px] leading-tight text-yellow main-font font-bold text-left">
             {item?.title?.toUpperCase() || "Untitled"}
           </p>
-          <p className="mb-4 text-base leading-8 text-[#d0d0d0]">
+          <p className="mb-4 sm:mb-6 text-sm sm:text-base leading-7 sm:leading-8 text-gray-300 alt-font text-left">
             {stripHtml(item.howItWorks || "") ||
               "This project combines clean UX and scalable engineering to solve real user problems."}
           </p>
 
-          <div className="mb-4 overflow-hidden bg-black/20">
+          <div className="mb-4 sm:mb-6 overflow-hidden bg-black/20 rounded-lg w-full">
             <img
               src={item?.coverImage || item?.thumbnail || imageUrl}
               alt={item?.title || "thumbnail"}
@@ -282,7 +282,7 @@ const PortfolioModal = ({
           </p> */}
           {hasHtmlContent(keyFeaturesSource) && (
             <>
-              <h3 className="mt-2 mb-2 text-[36px] leading-tight text-white">
+              <h3 className="mt-4 sm:mt-7 mb-2 sm:mb-4 text-[20px] sm:text-[28px] lg:text-[36px] leading-tight text-white main-font font-bold text-left">
                 Key Features
               </h3>
               <RawHtmlBlock html={keyFeaturesSource || ""} />
@@ -291,7 +291,7 @@ const PortfolioModal = ({
 
           {technologies.length > 0 && (
             <>
-              <h3 className="mt-2 mb-2 text-[36px] leading-tight text-white">
+               <h3 className="mt-2 mb-2 text-[36px] leading-tight text-white">
                 Languages And Frameworks
               </h3>
 
@@ -326,28 +326,29 @@ const PortfolioModal = ({
           )}
 
           {quoteText && (
-            <blockquote className="portfolio-quote">
+            <blockquote className="portfolio-quote text-left">
               <p>{quoteText}</p>
               {(item.quoteAuthor || item.client) && (
-                <cite>— {item.quoteAuthor || item.client}</cite>
+                <cite className="text-gray-400 alt-font">— {item.quoteAuthor || item.client}</cite>
               )}
             </blockquote>
           )}
 
-          <div className="mb-7">
+          <div className="mb-5 sm:mb-7">
             <Swiper
               modules={[Pagination]}
               key={item.id}
               className="portfolio-image-slider"
               slidesPerView={2}
-              spaceBetween={16}
+              spaceBetween={10}
               allowTouchMove={hasMultipleSlides}
               grabCursor={hasMultipleSlides}
               loop={hasMultipleSlides}
               // pagination={hasMultipleSlides ? { clickable: true } : false}
               breakpoints={{
-                0: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
+                0: { slidesPerView: 1, spaceBetween: 8 },
+                640: { slidesPerView: 1, spaceBetween: 12 },
+                768: { slidesPerView: 2, spaceBetween: 16 },
               }}
             >
               {sliderImages.map((image, index) => (
@@ -355,7 +356,7 @@ const PortfolioModal = ({
                   <img
                     src={image}
                     alt={`${item.title || "Portfolio"} preview ${index + 1}`}
-                    className="h-60 w-full rounded-2xl object-cover select-none"
+                    className="h-40 sm:h-60 w-full rounded-lg sm:rounded-2xl object-cover select-none"
                     draggable={false}
                   />
                 </SwiperSlide>
@@ -365,7 +366,7 @@ const PortfolioModal = ({
 
           {hasHtmlContent(processSource) && (
             <>
-              <h3 className="mt-1 mb-2 text-[36px] leading-tight text-white">
+              <h3 className="mt-4 sm:mt-7 mb-2 sm:mb-4 text-[20px] sm:text-[28px] lg:text-[36px] leading-tight text-white main-font font-bold text-left">
                 Process & Results
               </h3>
               <RawHtmlBlock html={processSource || ""} />
@@ -374,7 +375,7 @@ const PortfolioModal = ({
 
           {hasHtmlContent(developmentSource) && (
             <>
-              <h3 className="mt-1 mb-2 text-[36px] leading-tight text-white">
+              <h3 className="mt-4 sm:mt-7 mb-2 sm:mb-4 text-[20px] sm:text-[28px] lg:text-[36px] leading-tight text-white main-font font-bold text-left">
                 Challenges And Development
               </h3>
               <RawHtmlBlock html={developmentSource || ""} />
@@ -382,11 +383,11 @@ const PortfolioModal = ({
           )}
 
           {tags.length > 0 && (
-            <div className="mb-6 flex flex-wrap gap-2">
+            <div className="mb-5 sm:mb-8 flex flex-wrap gap-2 justify-start">
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-[#5a4a1c] bg-linear-to-r from-[#1f1a0d] to-[#151515] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#e6d27a] transition duration-200 hover:border-[#dabd1d] hover:text-[#f6df77]"
+                  className="rounded-full border-2 border-yellow bg-linear-to-r from-[#1f1a0d] to-[#151515] px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.08em] text-yellow transition duration-200 hover:border-yellow hover:text-yellow hover:shadow-[0_0_12px_rgba(218,189,29,0.4)]"
                 >
                   {tag}
                 </span>
@@ -394,7 +395,7 @@ const PortfolioModal = ({
             </div>
           )}
 
-          <div className="flex flex-wrap justify-end gap-2.5">
+          <div className="flex flex-wrap justify-end gap-2 sm:gap-2.5 mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-[#333]">
             <button
               onClick={onClose}
               type="button"
