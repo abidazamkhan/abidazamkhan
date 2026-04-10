@@ -232,8 +232,8 @@ const PortfolioModal = ({
         className="relative max-h-[95vh] sm:max-h-[90vh] w-full max-w-5xl overflow-auto rounded-xl sm:rounded-2xl border border-[#393939] bg-[#111111] shadow-[0_24px_60px_rgba(0,0,0,0.28)]"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative p-4 pt-12 sm:p-8 sm:pt-16 text-left">
-          <div className="absolute right-2 top-3 sm:right-4 sm:top-4 z-10 flex items-center gap-2">
+        <div className="relative p-4 pt-4 sm:p-8 sm:pt-8 text-left">
+          <div className="mb-4 flex items-center justify-end gap-2">
             {item.liveUrl && (
               <a
                 href={item.liveUrl}
