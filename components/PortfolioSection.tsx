@@ -239,7 +239,7 @@ const PortfolioModal = ({
                 href={item.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-8 sm:h-9 items-center justify-center rounded-full border border-yellow bg-linear-to-r from-yellow to-yellow px-3 sm:px-4 text-[10px] sm:text-xs font-bold uppercase tracking-[0.08em] text-gray-900 transition-all duration-200 hover:shadow-[0_0_12px_rgba(218,189,29,0.6)]"
+                className="inline-flex h-8 sm:h-9 items-center justify-center border border-yellow bg-linear-to-r from-yellow to-yellow px-3 sm:px-4 text-[10px] sm:text-xs font-bold uppercase tracking-[0.08em] text-gray-900 transition-all duration-200 hover:shadow-[0_0_12px_rgba(218,189,29,0.6)]"
               >
                 View Live
               </a>
@@ -248,7 +248,7 @@ const PortfolioModal = ({
               onClick={onClose}
               type="button"
               aria-label="Close modal"
-              className="inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full text-base sm:text-lg font-semibold text-white transition duration-200 hover:text-yellow hover:bg-[#2a2a2a]"
+              className="inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center  text-base sm:text-lg font-semibold text-white transition duration-200 hover:text-yellow-600!"
             >
               <CgClose className="hover:text-yellow" />
             </button>
@@ -387,7 +387,7 @@ const PortfolioModal = ({
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border-2 border-yellow bg-linear-to-r from-[#1f1a0d] to-[#151515] px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.08em] text-yellow transition duration-200 hover:border-yellow hover:text-yellow hover:shadow-[0_0_12px_rgba(218,189,29,0.4)]"
+                  className="inline-flex items-center justify-center bg-linear-to-r from-[#d8ba1a] via-[#e7c848] to-[#cfaf14] px-6 py-2.5 text-sm font-bold uppercase tracking-[0.08em] text-[#ffffff] shadow-[0_8px_20px_rgba(218,189,29,0.3)] transition duration-300 hover:shadow-[0_12px_26px_rgba(218,189,29,0.4)]"
                 >
                   {tag}
                 </span>
@@ -399,7 +399,7 @@ const PortfolioModal = ({
             <button
               onClick={onClose}
               type="button"
-              className="inline-flex items-center justify-center rounded-full bg-linear-to-r from-[#d8ba1a] via-[#e7c848] to-[#cfaf14] px-6 py-2.5 text-sm font-bold uppercase tracking-[0.08em] text-[#ffffff] shadow-[0_8px_20px_rgba(218,189,29,0.3)] transition duration-300 hover:shadow-[0_12px_26px_rgba(218,189,29,0.4)]"
+              className="rounded-full border-2 border-yellow bg-linear-to-r from-[#1f1a0d] to-[#151515] px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.08em] text-yellow transition duration-200 hover:border-yellow hover:text-yellow hover:shadow-[0_0_12px_rgba(218,189,29,0.4)]"
             >
               Close
             </button>
