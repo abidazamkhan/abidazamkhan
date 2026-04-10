@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { hasHtmlContent, toSafeHtml } from "@/utils/html-render";
 import { getTechIcon } from "@/utils/techicon";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -182,6 +182,14 @@ const PortfolioModal = ({
   item: PortfolioItem;
   onClose: () => void;
 }) => {
+  const modalContainerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    // Always reveal the start of the modal content when opening on mobile.
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    modalContainerRef.current?.scrollTo({ top: 0, behavior: "auto" });
+  }, [item.id]);
+
   const imageUrl =
     item.coverImage ||
     item.thumbnail ||
@@ -205,6 +213,7 @@ const PortfolioModal = ({
       onClick={onClose}
     >
       <div
+        ref={modalContainerRef}
         className="relative max-h-[90vh] w-full max-w-5xl overflow-auto rounded-2xl border border-[#393939] bg-[#111111] shadow-[0_24px_60px_rgba(0,0,0,0.28)]"
         onClick={(e) => e.stopPropagation()}
       >
