@@ -54,7 +54,7 @@ jobs:
             if pm2 describe abid-portfolio > /dev/null; then
               pm2 restart abid-portfolio
             else
-              pm2 start "npm run start -- -p 9000" --name abid-portfolio
+              pm2 start "npm run start -- -p 3009" --name abid-portfolio
             fi
 
             pm2 save
