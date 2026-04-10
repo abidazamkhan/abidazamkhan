@@ -67,6 +67,22 @@ const RawHtmlBlock = ({ html }: { html: string }) => {
 
 const PortfolioSection = ({ portfolio }: { portfolio: PortfolioItem[] }) => {
   const [activeItem, setActiveItem] = useState<PortfolioItem | null>(null);
+  const previousScrollYRef = useRef(0);
+
+  const handleOpenModal = (item: PortfolioItem) => {
+    previousScrollYRef.current = window.scrollY;
+    setActiveItem(item);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleCloseModal = () => {
+    setActiveItem(null);
+    const previousScrollY = previousScrollYRef.current;
+
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: previousScrollY, behavior: "smooth" });
+    });
+  };
 
   return (
     <>
@@ -97,7 +113,7 @@ const PortfolioSection = ({ portfolio }: { portfolio: PortfolioItem[] }) => {
                   <PortfolioCard
                     key={item.id}
                     item={item}
-                    onOpen={() => setActiveItem(item)}
+                    onOpen={() => handleOpenModal(item)}
                   />
                 ))}
               </div>
@@ -113,7 +129,7 @@ const PortfolioSection = ({ portfolio }: { portfolio: PortfolioItem[] }) => {
       </section>
 
       {activeItem && (
-        <PortfolioModal item={activeItem} onClose={() => setActiveItem(null)} />
+        <PortfolioModal item={activeItem} onClose={handleCloseModal} />
       )}
     </>
   );
@@ -185,8 +201,7 @@ const PortfolioModal = ({
   const modalContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Always reveal the start of the modal content when opening on mobile.
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Always reveal the start of the modal content when opening.
     modalContainerRef.current?.scrollTo({ top: 0, behavior: "auto" });
   }, [item.id]);
 
