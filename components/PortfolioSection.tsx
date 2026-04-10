@@ -59,7 +59,7 @@ const RawHtmlBlock = ({ html }: { html: string }) => {
 
   return (
     <div
-      className="raw-html-content leading-8 text-gray-300"
+      className="raw-html-content leading-8 text-white"
       dangerouslySetInnerHTML={toSafeHtml(html)}
     />
   );
@@ -258,7 +258,7 @@ const PortfolioModal = ({
           </p> */}
           {hasHtmlContent(keyFeaturesSource) && (
             <>
-              <h3 className="mt-2 mb-2 text-[36px] leading-tight text-[#dabd1d]">
+              <h3 className="mt-2 mb-2 text-[36px] leading-tight text-white">
                 Key Features
               </h3>
               <RawHtmlBlock html={keyFeaturesSource || ""} />
@@ -267,7 +267,7 @@ const PortfolioModal = ({
 
           {technologies.length > 0 && (
             <>
-              <h3 className="mt-2 mb-2 text-[36px] leading-tight text-[#dabd1d]">
+              <h3 className="mt-2 mb-2 text-[36px] leading-tight text-white">
                 Languages And Frameworks
               </h3>
 
@@ -341,7 +341,7 @@ const PortfolioModal = ({
 
           {hasHtmlContent(processSource) && (
             <>
-              <h3 className="mt-1 mb-2 text-[36px] leading-tight text-[#dabd1d]">
+              <h3 className="mt-1 mb-2 text-[36px] leading-tight text-white">
                 Process & Results
               </h3>
               <RawHtmlBlock html={processSource || ""} />
@@ -350,7 +350,7 @@ const PortfolioModal = ({
 
           {hasHtmlContent(developmentSource) && (
             <>
-              <h3 className="mt-1 mb-2 text-[36px] leading-tight text-[#dabd1d]">
+              <h3 className="mt-1 mb-2 text-[36px] leading-tight text-white">
                 Challenges And Development
               </h3>
               <RawHtmlBlock html={developmentSource || ""} />

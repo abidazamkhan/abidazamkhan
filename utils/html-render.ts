@@ -16,12 +16,23 @@ const sanitizeHtml = (value: string) =>
     .replace(/\son\w+\s*=\s*'[^']*'/gi, "")
     .replace(/javascript:/gi, "");
 
+const wrapDynamicLabel = (value: string) =>
+  value
+    .replace(
+      /<\s*(b|strong)\b[^>]*>\s*([^<:\n]{2,120}:)\s*<\s*\/\s*(b|strong)\s*>/gi,
+      '<span class="dynamic-label">$2</span>',
+    )
+    .replace(
+      /<(li|p)([^>]*)>\s*("?)([^<:\n]{2,120}:)(?=\s)/gi,
+      '<$1$2>$3<span class="dynamic-label">$4</span>',
+    );
+
 const normalizeHtml = (value: string) => {
   const raw = value.trim();
   if (!raw) return "";
 
   if (raw.includes("<")) {
-    return sanitizeHtml(raw);
+    return wrapDynamicLabel(sanitizeHtml(raw));
   }
 
   return escapeHtml(raw);
