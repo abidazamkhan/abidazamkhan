@@ -34,8 +34,12 @@ jobs:
           script: |
             set -eux
             export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-            nvm use 20 || true
+            if [ -s "$NVM_DIR/nvm.sh" ]; then
+              . "$NVM_DIR/nvm.sh"
+              nvm use 20 || true
+            fi
+            node -v
+            npm -v
 
             cd /var/www/apps/abid/portfolio
             git rev-parse --is-inside-work-tree
