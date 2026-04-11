@@ -203,6 +203,13 @@ const PortfolioModal = ({
   useEffect(() => {
     // Always reveal the start of the modal content when opening.
     modalContainerRef.current?.scrollTo({ top: 0, behavior: "auto" });
+
+    const previousBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow;
+    };
   }, [item.id]);
 
   const imageUrl =
@@ -224,16 +231,16 @@ const PortfolioModal = ({
 
   return (
     <div
-      className="fixed inset-0 z-9999 flex w-full items-center justify-center bg-black/70 p-3 sm:p-4 backdrop-blur-md"
+      className="fixed inset-0 z-9999 flex h-screen w-screen items-stretch justify-stretch overflow-hidden bg-black lg:items-center lg:justify-center lg:p-8"
       onClick={onClose}
     >
       <div
         ref={modalContainerRef}
-        className="relative max-h-[95vh] sm:max-h-[90vh] w-full max-w-5xl overflow-auto rounded-xl sm:rounded-2xl border border-[#393939] bg-[#111111] shadow-[0_24px_60px_rgba(0,0,0,0.28)]"
+        className="relative flex h-full w-full min-h-0 flex-col overflow-hidden border-0 bg-[#111111] lg:h-[calc(100vh-4rem)] lg:max-w-6xl lg:rounded-2xl lg:border lg:border-[#222]"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative p-4 pt-4 sm:p-8 sm:pt-8 text-left">
-          <div className="mb-4 flex items-center justify-end gap-2">
+        <div className="relative flex h-full w-full min-h-0 flex-col text-left">
+          <div className="shrink-0 flex items-center justify-end gap-2 border-b border-[#222] p-4 sm:p-6">
             {item.liveUrl && (
               <a
                 href={item.liveUrl}
@@ -253,156 +260,148 @@ const PortfolioModal = ({
               <CgClose className="hover:text-yellow" />
             </button>
           </div>
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-4 text-left sm:p-6 lg:p-8">
+            <p className="mt-0 mb-2 sm:mb-4 text-[26px] sm:text-[36px] leading-tight text-yellow main-font font-bold text-left">
+              {item?.title?.toUpperCase() || "Untitled"}
+            </p>
+            <p className="mb-4 sm:mb-6 text-sm sm:text-base leading-7 sm:leading-8 text-gray-300 alt-font text-left">
+              {stripHtml(item.howItWorks || "") ||
+                "This project combines clean UX and scalable engineering to solve real user problems."}
+            </p>
 
-        
+            <div className="mb-4 sm:mb-6 overflow-hidden rounded-lg w-full bg-black/20">
+              <img
+                src={item?.coverImage || item?.thumbnail || imageUrl}
+                alt={item?.title || "thumbnail"}
+                className="h-auto w-full object-cover"
+              />
+            </div>
 
+            {hasHtmlContent(keyFeaturesSource) && (
+              <>
+                <h3 className="mt-4 sm:mt-7 mb-2 sm:mb-4 text-[20px] sm:text-[28px] lg:text-[36px] leading-tight text-white main-font font-bold text-left">
+                  Key Features
+                </h3>
+                <RawHtmlBlock html={keyFeaturesSource || ""} />
+              </>
+            )}
 
-          <p className="mt-0 mb-2 sm:mb-4 text-[26px] sm:text-[36px] leading-tight text-yellow main-font font-bold text-left">
-            {item?.title?.toUpperCase() || "Untitled"}
-          </p>
-          <p className="mb-4 sm:mb-6 text-sm sm:text-base leading-7 sm:leading-8 text-gray-300 alt-font text-left">
-            {stripHtml(item.howItWorks || "") ||
-              "This project combines clean UX and scalable engineering to solve real user problems."}
-          </p>
+            {technologies.length > 0 && (
+              <>
+                <h3 className="mt-2 mb-2 text-[24px] sm:text-[36px] leading-tight text-white main-font font-bold text-left">
+                  Languages And Frameworks
+                </h3>
 
-          <div className="mb-4 sm:mb-6 overflow-hidden bg-black/20 rounded-lg w-full">
-            <img
-              src={item?.coverImage || item?.thumbnail || imageUrl}
-              alt={item?.title || "thumbnail"}
-              className="h-auto w-full object-cover"
-            />
-          </div>
+                <div className="mb-5 flex flex-wrap items-center gap-2">
+                  {technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gray-400 px-3 py-1.5 font-medium text-gray-900"
+                      style={{
+                        display: "inline-flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                      }}
+                    >
+                      {(() => {
+                        const techMeta = getTechIcon(tech);
+                        const Icon = techMeta?.icon;
 
-          {/* 
-          <p className="mb-6 text-[13px] uppercase tracking-[0.08em] text-[#b6b6b6]">
-            {item.category?.[0] || "Project"}
-            {item.publishedAt
-              ? ` - ${new Date(item.publishedAt).toLocaleDateString()}`
-              : ""}
-          </p> */}
-          {hasHtmlContent(keyFeaturesSource) && (
-            <>
-              <h3 className="mt-4 sm:mt-7 mb-2 sm:mb-4 text-[20px] sm:text-[28px] lg:text-[36px] leading-tight text-white main-font font-bold text-left">
-                Key Features
-              </h3>
-              <RawHtmlBlock html={keyFeaturesSource || ""} />
-            </>
-          )}
+                        return Icon ? (
+                          <Icon
+                            aria-hidden="true"
+                            className="shrink-0 text-xl"
+                            style={{ color: techMeta.color }}
+                          />
+                        ) : null;
+                      })()}
+                      <span className="whitespace-nowrap">{tech}</span>
+                    </span>
+                  ))}
+                </div>
+              </>
+            )}
 
-          {technologies.length > 0 && (
-            <>
-               <h3 className="mt-2 mb-2 text-[36px] leading-tight text-white">
-                Languages And Frameworks
-              </h3>
+            {quoteText && (
+              <blockquote className="portfolio-quote text-left">
+                <p>{quoteText}</p>
+                {(item.quoteAuthor || item.client) && (
+                  <cite className="text-gray-400 alt-font">— {item.quoteAuthor || item.client}</cite>
+                )}
+              </blockquote>
+            )}
 
-              <div className="mb-5 flex flex-wrap items-center gap-2">
-                {technologies.map((tech) => (
+            <div className="mb-5 sm:mb-7">
+              <Swiper
+                modules={[Pagination]}
+                key={item.id}
+                className="portfolio-image-slider"
+                slidesPerView={2}
+                spaceBetween={10}
+                allowTouchMove={hasMultipleSlides}
+                grabCursor={hasMultipleSlides}
+                loop={hasMultipleSlides}
+                breakpoints={{
+                  0: { slidesPerView: 1, spaceBetween: 8 },
+                  640: { slidesPerView: 1, spaceBetween: 12 },
+                  768: { slidesPerView: 2, spaceBetween: 16 },
+                }}
+              >
+                {sliderImages.map((image, index) => (
+                  <SwiperSlide key={`${image}-${index}`}>
+                    <img
+                      src={image}
+                      alt={`${item.title || "Portfolio"} preview ${index + 1}`}
+                      className="h-40 sm:h-60 w-full rounded-lg sm:rounded-2xl object-cover select-none"
+                      draggable={false}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+
+            {hasHtmlContent(processSource) && (
+              <>
+                <h3 className="mt-4 sm:mt-7 mb-2 sm:mb-4 text-[20px] sm:text-[28px] lg:text-[36px] leading-tight text-white main-font font-bold text-left">
+                  Process & Results
+                </h3>
+                <RawHtmlBlock html={processSource || ""} />
+              </>
+            )}
+
+            {hasHtmlContent(developmentSource) && (
+              <>
+                <h3 className="mt-4 sm:mt-7 mb-2 sm:mb-4 text-[20px] sm:text-[28px] lg:text-[36px] leading-tight text-white main-font font-bold text-left">
+                  Challenges And Development
+                </h3>
+                <RawHtmlBlock html={developmentSource || ""} />
+              </>
+            )}
+
+            {tags.length > 0 && (
+              <div className="mb-5 sm:mb-8 flex flex-wrap gap-2 justify-start">
+                {tags.map((tag) => (
                   <span
-                    key={tech}
-                    className="inline-flex items-center gap-2 whitespace-nowrap rounded-full  bg-gray-400 px-3 py-1.5 font-medium text-gray-900"
-                    style={{
-                      display: "inline-flex",
-                      flexDirection: "row",
-                      alignItems: "center",
-                    }}
+                    key={tag}
+                    className="inline-flex items-center justify-center bg-linear-to-r from-[#d8ba1a] via-[#e7c848] to-[#cfaf14] px-6 py-2.5 text-sm font-bold uppercase tracking-[0.08em] text-[#ffffff] shadow-[0_8px_20px_rgba(218,189,29,0.3)] transition duration-300 hover:shadow-[0_12px_26px_rgba(218,189,29,0.4)]"
                   >
-                    {(() => {
-                      const techMeta = getTechIcon(tech);
-                      const Icon = techMeta?.icon;
-
-                      return Icon ? (
-                        <Icon
-                          aria-hidden="true"
-                          className="shrink-0 text-xl"
-                          style={{ color: techMeta.color }}
-                        />
-                      ) : null;
-                    })()}
-                    <span className="whitespace-nowrap">{tech}</span>
+                    {tag}
                   </span>
                 ))}
               </div>
-            </>
-          )}
-
-          {quoteText && (
-            <blockquote className="portfolio-quote text-left">
-              <p>{quoteText}</p>
-              {(item.quoteAuthor || item.client) && (
-                <cite className="text-gray-400 alt-font">— {item.quoteAuthor || item.client}</cite>
-              )}
-            </blockquote>
-          )}
-
-          <div className="mb-5 sm:mb-7">
-            <Swiper
-              modules={[Pagination]}
-              key={item.id}
-              className="portfolio-image-slider"
-              slidesPerView={2}
-              spaceBetween={10}
-              allowTouchMove={hasMultipleSlides}
-              grabCursor={hasMultipleSlides}
-              loop={hasMultipleSlides}
-              // pagination={hasMultipleSlides ? { clickable: true } : false}
-              breakpoints={{
-                0: { slidesPerView: 1, spaceBetween: 8 },
-                640: { slidesPerView: 1, spaceBetween: 12 },
-                768: { slidesPerView: 2, spaceBetween: 16 },
-              }}
-            >
-              {sliderImages.map((image, index) => (
-                <SwiperSlide key={`${image}-${index}`}>
-                  <img
-                    src={image}
-                    alt={`${item.title || "Portfolio"} preview ${index + 1}`}
-                    className="h-40 sm:h-60 w-full rounded-lg sm:rounded-2xl object-cover select-none"
-                    draggable={false}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+            )}
           </div>
 
-          {hasHtmlContent(processSource) && (
-            <>
-              <h3 className="mt-4 sm:mt-7 mb-2 sm:mb-4 text-[20px] sm:text-[28px] lg:text-[36px] leading-tight text-white main-font font-bold text-left">
-                Process & Results
-              </h3>
-              <RawHtmlBlock html={processSource || ""} />
-            </>
-          )}
-
-          {hasHtmlContent(developmentSource) && (
-            <>
-              <h3 className="mt-4 sm:mt-7 mb-2 sm:mb-4 text-[20px] sm:text-[28px] lg:text-[36px] leading-tight text-white main-font font-bold text-left">
-                Challenges And Development
-              </h3>
-              <RawHtmlBlock html={developmentSource || ""} />
-            </>
-          )}
-
-          {tags.length > 0 && (
-            <div className="mb-5 sm:mb-8 flex flex-wrap gap-2 justify-start">
-              {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center justify-center bg-linear-to-r from-[#d8ba1a] via-[#e7c848] to-[#cfaf14] px-6 py-2.5 text-sm font-bold uppercase tracking-[0.08em] text-[#ffffff] shadow-[0_8px_20px_rgba(218,189,29,0.3)] transition duration-300 hover:shadow-[0_12px_26px_rgba(218,189,29,0.4)]"
-                >
-                  {tag}
-                </span>
-              ))}
+          <div className="shrink-0 border-t border-[#333] p-4 sm:p-6 lg:p-8">
+            <div className="flex flex-wrap justify-end gap-2 sm:gap-2.5">
+              <button
+                onClick={onClose}
+                type="button"
+                className="rounded-full border-2 border-yellow bg-linear-to-r from-[#1f1a0d] to-[#151515] px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.08em] text-yellow transition duration-200 hover:border-yellow hover:text-yellow hover:shadow-[0_0_12px_rgba(218,189,29,0.4)]"
+              >
+                Close
+              </button>
             </div>
-          )}
-
-          <div className="flex flex-wrap justify-end gap-2 sm:gap-2.5 mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-[#333]">
-            <button
-              onClick={onClose}
-              type="button"
-              className="rounded-full border-2 border-yellow bg-linear-to-r from-[#1f1a0d] to-[#151515] px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.08em] text-yellow transition duration-200 hover:border-yellow hover:text-yellow hover:shadow-[0_0_12px_rgba(218,189,29,0.4)]"
-            >
-              Close
-            </button>
           </div>
         </div>
       </div>
