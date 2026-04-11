@@ -2356,6 +2356,11 @@ header a.logo img {
         overflow-y: hidden !important;
     }
 
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
     html {
         scroll-behavior: smooth;
     }
@@ -2473,8 +2478,64 @@ header a.logo img {
         font-size: 14px;
     }
 
+    .skills .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .skills .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .skills .row > [class*="col-"] {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .bars-section {
+        padding-right: 0 !important;
+    }
+
     .progress-bar-side {
-        padding-top: 4rem;
+        padding-top: 2rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .progress-bar-side .custom-progress {
+        margin-bottom: 1.25rem;
+    }
+
+    .progress-bar-side .custom-progress h6 {
+        display: block;
+        position: relative;
+        padding-right: 52px;
+        text-align: left;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .progress-bar-side .custom-progress h6 .float-right {
+        position: absolute;
+        right: 0;
+        top: 0;
+        float: none !important;
+        white-space: nowrap;
+    }
+
+    .pp-scrollable {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .pp-scrollable::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none;
     }
 
     /* Timeline */
