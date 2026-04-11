@@ -136,7 +136,7 @@ export default async function Home() {
                 </li>
                 <li className="text-center sidebar_btn">
                   <a className="btn btn-medium btn-rounded btn-yellow text-capitalize" href="#contact">
-                    Contact
+                    Contact Me
                   </a>
                 </li>
               </ul>
