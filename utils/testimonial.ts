@@ -17,7 +17,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 2,
     name: "Leila Ahmed",
-    text: "We approached Unipixer with an early LMS idea. They helped design the course editor, quizzes, and teacher dashboard. When users felt confused, their team improved flows quickly and continues supporting updates.",
+    text: "We approached Unipixer with an early LMS idea. They helped design the course editor, quizzes, answare, sheet, and teacher dashboard. When users felt confused, their team improved flows quickly and continues supporting updates.",
     image: "/images/testi/t2.png",
   },
   {
