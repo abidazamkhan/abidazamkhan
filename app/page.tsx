@@ -48,7 +48,7 @@ const fetchPortfolio = async (): Promise<PortfolioItem[]> => {
     const res = await fetch(
       "https://core.unipixer.com/api/v1/portfolio/published?limit=100",
       {
-        next: { revalidate: 300 },
+        next: { revalidate: 86400 },
       },
     );
 
