@@ -105,7 +105,7 @@ export default async function Home() {
           </span>
           <div className="inner-wrapper">
             <nav className="side-nav w-100">
-              <a href="#home" title="Logo" className="logo navbar-brand">
+              <a href="#home" title="Abid Azam Khan" className="logo navbar-brand">
                 <img src="/personal-hotspot/images/logo.png" alt="logo" />
               </a>
               <ul className="navbar-nav text-capitalize">
