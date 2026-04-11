@@ -179,7 +179,7 @@ export default async function Home() {
                   </a>{" "}
                 </li>
               </ul>
-              <p>&copy; 2024 MegaOne. Made With Love by Themesindustry</p>
+              <p>&copy; 2026 Abid Azam Khan.</p>
             </div>
           </div>
         </div>
