@@ -72,7 +72,7 @@ export default async function Home() {
 
       <header>
         <nav className="navbar navbar-top-default navbar-expand-lg navbar-simple nav-line">
-          <a href="#home" title="Logo" className="logo">
+          <a href="#home" title="Abid Azam Khan" className="logo">
             <div className="mega-logo">
               <img
                 src="/personal-hotspot/images/logo.png"
@@ -134,13 +134,13 @@ export default async function Home() {
                     Testimonials
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#contact">
+                <li className="text-center sidebar_btn">
+                  <a className="btn btn-medium btn-rounded btn-yellow text-capitalize" href="#contact">
                     Contact
                   </a>
                 </li>
               </ul>
-              <div className="text-center sidebar_btn">
+              {/* <div className="text-center sidebar_btn">
                 <a
                   href="/personal-hotspot/download-resume/resume.pdf"
                   download
@@ -148,7 +148,7 @@ export default async function Home() {
                 >
                   Download Resume
                 </a>
-              </div>
+              </div> */}
             </nav>
 
             <div className="side-footer w-100">
