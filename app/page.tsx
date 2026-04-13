@@ -4,19 +4,57 @@ import { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://abidazam.com"),
   title: "Abid Azam Khan | Full-Stack Web, Mobile & Desktop App Developer",
   description:
-    "Senior Software Engineer & CEO of UNIPIXER. Specializing in high-performance web, mobile & desktop apps using React, Next.js, Node.js & secure APIs.",
+    "Senior Software Engineer & CEO of UNIPIXER. 10+ years of experience in high-performance web, mobile & desktop apps using React, Next.js, Node.js & secure APIs.",
   keywords:
-    "Abid Azam Khan, Full-Stack Developer, Web Developer, Mobile App Developer, Desktop App Developer, Senior Software Engineer, System Architect, UNIPIXER, React, Next.js, Angular, React Native, Flutter, Electron.js, Node.js, C# ASP.NET, Laravel, Custom Software Development",
+    "Abid Azam Khan, UNIPIXER, Full-Stack Developer, Senior Software Engineer, System Architect, React, Next.js, Node.js, React Native, Electron.js",
+  authors: [{ name: "Abid Azam Khan", url: "https://abidazam.com" }],
+  creator: "Abid Azam Khan",
+  publisher: "UNIPIXER",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: "Abid Azam Khan | Portfolio",
+    type: "website",
+    locale: "en_US",
+    url: "https://abidazam.com",
+    title: "Abid Azam Khan | Senior Full-Stack Developer & CEO of UNIPIXER",
     description:
-      "Senior Software Engineer & CEO of UNIPIXER. Digital Creative Director & Product Designer with 10+ years of experience.",
+      "Expert in building high-performance web, mobile & desktop applications with 10+ years of industry experience.",
+    siteName: "Abid Azam Khan Portfolio",
+    images: [
+      {
+        url: "/personal-hotspot/images/slider-img.png",
+        width: 1200,
+        height: 630,
+        alt: "Abid Azam Khan - Full Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Abid Azam Khan | Senior Full-Stack Developer",
+    description: "Expert in React, Next.js, Node.js, and Mobile/Desktop development.",
     images: ["/personal-hotspot/images/slider-img.png"],
+    creator: "@abidazamkhan", // Assuming this handle based on name
+  },
+  icons: {
+    icon: "/personal-hotspot/images/favicon.ico",
+    shortcut: "/personal-hotspot/images/favicon.ico",
+    apple: "/personal-hotspot/images/favicon.ico",
   },
 };
+
 type PortfolioItem = {
   category: string[];
   id: string;

@@ -13,10 +13,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Personal Hotspot | Portfolio",
+  title: {
+    template: "%s | Abid Azam Khan",
+    default: "Abid Azam Khan | Senior Full-Stack Developer",
+  },
   description:
-    "Explore my portfolio of innovative web development projects and creative solutions",
+    "Explore the portfolio of Abid Azam Khan, a Senior Software Engineer specializing in high-performance web, mobile, and desktop applications.",
 };
+
 
 export default function RootLayout({
   children,
@@ -46,15 +50,23 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Portfolio Developer",
-              jobTitle: "Web Developer & Designer",
+              name: "Abid Azam Khan",
+              jobTitle: "Senior Full-Stack Developer & CEO",
+              worksFor: {
+                "@type": "Organization",
+                name: "UNIPIXER",
+              },
               knowsAbout: [
-                "Web Development",
-                "UI/UX Design",
-                "JavaScript",
+                "Software Engineering",
+                "Full-Stack Development",
+                "Mobile App Development",
+                "Desktop App Development",
+                "System Architecture",
+                "Next.js",
                 "React",
                 "Node.js",
               ],
+
             }),
           }}
         />
