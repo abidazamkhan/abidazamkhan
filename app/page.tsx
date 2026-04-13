@@ -185,11 +185,28 @@ export default async function Home() {
                     Testimonials
                   </a>
                 </li>
-                <li className="text-center nav-item sidebar_btn">
-                  <a className="nav-link btn btn-medium btn-rounded btn-yellow text-capitalize" href="#contact">
-                    Contact Me
+                <li className="text-center nav-item sidebar_btn mt-4">
+                  <a
+                    className="nav-link scroll btn !px-[50px] !py-[15px]"
+                    href="#contact"
+                    style={{
+                      background: 'transparent',
+                      border: '2px solid #dabd1d',
+                      color: '#dabd1d',
+                      borderRadius: '50px',
+                      fontSize: '17px',
+                      fontFamily: "'Poppins', sans-serif",
+                      fontWeight: '500',
+                      display: 'inline-block',
+                      textTransform: 'none',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    Contact Now
                   </a>
                 </li>
+
+
               </ul>
               {/* <div className="text-center sidebar_btn">
                 <a
