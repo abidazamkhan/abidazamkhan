@@ -1,0 +1,24 @@
+# Abid Azam Khan - Portfolio
+
+## Overview
+Senior Software Engineer and CEO of UNIPIXER with over 10 years of experience. Expert in full-stack web, mobile, and desktop application development.
+
+## Core Technologies
+- **Front-End**: React, Next.js, Angular, TypeScript.
+- **Back-End**: Node.js, C# ASP.NET, Laravel.
+- **Mobile/Desktop**: React Native, Flutter, Electron.js.
+- **Databases**: MySQL, PostgreSQL, MongoDB.
+
+## Professional Experience
+- **UNIPIXER**: Founder & CEO (2026-Present).
+- **Upwork**: Top Rated Full Stack Developer.
+- **Firefly**: System Architect.
+- **Window IT Solution**: Programmer.
+
+## Contact
+- **Website**: https://unipixer.com
+- **LinkedIn**: Abid Azam Khan
+- **Upwork**: Top Rated Freelancer
+
+## Projects & Expertise
+Specializes in high-performance, secure, and scalable applications. Experienced in architecting globally distributed systems and custom automation scripting.

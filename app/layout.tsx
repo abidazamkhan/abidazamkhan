@@ -40,6 +40,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://core.unipixer.com" />
         <link rel="dns-prefetch" href="https://core.unipixer.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" href="/personal-hotspot/images/favicon.ico" />
         <link rel="stylesheet" href="/vendor/css/bundle.min.css" />
         <link rel="stylesheet" href="/vendor/css/LineIcons.min.css" />
@@ -49,6 +51,8 @@ export default function RootLayout({
         <link rel="stylesheet" href="/personal-hotspot/css/line-awesome.min.css" />
         <link rel="stylesheet" href="/personal-hotspot/css/jquery.pagepiling.css" />
         <link rel="stylesheet" href="/personal-hotspot/css/style.css" />
+
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

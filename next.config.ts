@@ -4,7 +4,17 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: process.cwd(),
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "core.unipixer.com",
+      },
+    ],
+    formats: ["image/avif", "image/webp"],
+  },
   async rewrites() {
+
     return [
       {
         source: "/personal-hotspot",

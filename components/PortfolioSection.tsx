@@ -6,6 +6,8 @@ import { getTechIcon } from "@/utils/techicon";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import { CgClose } from "react-icons/cg";
+import Image from "next/image";
+
 
 type PortfolioItem = {
   category: string[];
@@ -159,12 +161,15 @@ const PortfolioCard = ({
           className="w-full cursor-pointer border-0 bg-transparent p-0 text-left"
         >
           <div className="single-work overflow-hidden">
-            <img
+            <Image
               src={imageUrl}
               alt={item.title || "Portfolio item"}
-              className="img-responsive w-full transition-transform duration-300 group-hover:scale-[1.02]"
+              width={600}
+              height={450}
+              className="img-responsive w-full transition-transform duration-300 group-hover:scale-[1.05] object-cover"
               data-no-retina
             />
+
             <div className="overlay-text center-block">
               <div className="cases-image-inner">
                 <span className="cases-line top"></span>
@@ -270,12 +275,15 @@ const PortfolioModal = ({
             </p>
 
             <div className="mb-4 sm:mb-6 overflow-hidden rounded-lg w-full bg-black/20">
-              <img
+              <Image
                 src={item?.coverImage || item?.thumbnail || imageUrl}
                 alt={item?.title || "thumbnail"}
+                width={1200}
+                height={675}
                 className="h-auto w-full object-cover"
               />
             </div>
+
 
             {hasHtmlContent(keyFeaturesSource) && (
               <>
@@ -349,13 +357,16 @@ const PortfolioModal = ({
               >
                 {sliderImages.map((image, index) => (
                   <SwiperSlide key={`${image}-${index}`}>
-                    <img
+                    <Image
                       src={image}
                       alt={`${item.title || "Portfolio"} preview ${index + 1}`}
+                      width={600}
+                      height={400}
                       className="h-40 sm:h-60 w-full rounded-lg sm:rounded-2xl object-cover select-none"
                       draggable={false}
                     />
                   </SwiperSlide>
+
                 ))}
               </Swiper>
             </div>

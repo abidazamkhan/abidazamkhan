@@ -86,22 +86,31 @@ type PortfolioResponse = {
 };
 
 const fetchPortfolio = async (): Promise<PortfolioItem[]> => {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 10000);
+
   try {
     const res = await fetch(
       "https://core.unipixer.com/api/v1/portfolio/published?limit=100",
       {
         next: { revalidate: 86400 },
+        signal: controller.signal,
       },
     );
+
+    clearTimeout(timeoutId);
 
     if (!res.ok) return [];
 
     const data: PortfolioResponse = await res.json();
     return data.data?.portfolios ?? [];
-  } catch {
+  } catch (err) {
+    clearTimeout(timeoutId);
+    console.error("Fetch error:", err);
     return [];
   }
 };
+
 
 export default async function Home() {
   const portfolio = await fetchPortfolio();
@@ -176,8 +185,8 @@ export default async function Home() {
                     Testimonials
                   </a>
                 </li>
-                <li className="text-center sidebar_btn">
-                  <a className="btn btn-medium btn-rounded btn-yellow text-capitalize" href="#contact">
+                <li className="text-center nav-item sidebar_btn">
+                  <a className="nav-link btn btn-medium btn-rounded btn-yellow text-capitalize" href="#contact">
                     Contact Me
                   </a>
                 </li>

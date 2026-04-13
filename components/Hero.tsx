@@ -1,4 +1,4 @@
-import React from 'react';
+import Image from 'next/image';
 
 const Hero = () => {
   return (
@@ -7,9 +7,17 @@ const Hero = () => {
         <div className="row align-items-center">
           <div className="col-12 col-lg-6 image-order">
             <div className="slider-image">
-              <img src="/personal-hotspot/images/slider-img.png" alt="Abid Azam Khan Portfolio" />
+              <Image
+                src="/personal-hotspot/images/slider-img.png"
+                alt="Abid Azam Khan Portfolio"
+                width={600}
+                height={600}
+                priority
+                className="h-auto w-full object-contain"
+              />
             </div>
           </div>
+
           <div className="col-12 col-lg-6 text-md-center text-lg-left">
             <div className="slider-content">
               <h1 className="main-font text-uppercase">

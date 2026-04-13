@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { testimonials } from "@/utils/testimonial";
 
 const Testimonials = () => {
@@ -28,7 +29,15 @@ const Testimonials = () => {
                   <div className="description">
                     <p className="text-grey paragraph">{testimonial.text}</p>
                   </div>
-                  <div className="testimonial-img mt-4"><img src={testimonial.image} alt={testimonial.name} /></div>
+                  <div className="testimonial-img mt-4 relative inline-block">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      width={80}
+                      height={80}
+                      className="rounded-full object-cover mx-auto"
+                    />
+                  </div>
                   <div className="testimonial-tittle mt-3 mb-3"><h4 className="mb-0 text-yellow main-font font-weight-normal text-uppercase">{testimonial.name}</h4></div>
                 </div>
               ))}

@@ -1,4 +1,4 @@
-"use client";
+import Image from 'next/image';
 
 export default function Navbar() {
   return (
@@ -6,7 +6,14 @@ export default function Navbar() {
       <nav className="navbar navbar-top-default navbar-expand-lg navbar-simple nav-line">
         <a href="#home" title="Logo" className="logo">
           <div className="mega-logo">
-            <img src="/personal-hotspot/images/logo.png" alt="logo" className="ml-lg-3 m-0" />
+            <Image
+              src="/personal-hotspot/images/logo.png"
+              alt="logo"
+              width={160}
+              height={40}
+              priority
+              className="ml-lg-3 m-0 w-auto h-auto"
+            />
           </div>
         </a>
 
@@ -30,7 +37,13 @@ export default function Navbar() {
         <div className="inner-wrapper">
           <nav className="side-nav w-100">
             <a href="#home" title="Logo" className="logo navbar-brand">
-              <img src="/personal-hotspot/images/logo.png" alt="logo" />
+              <Image
+                src="/personal-hotspot/images/logo.png"
+                alt="logo"
+                width={120}
+                height={30}
+                className="w-auto h-auto"
+              />
             </a>
             <ul className="navbar-nav text-capitalize">
               <li className="nav-item">
@@ -71,7 +84,7 @@ export default function Navbar() {
               <li><a className="social-icon" href="#"><i className="fab fa-linkedin-in"></i> </a> </li>
               <li><a className="social-icon" href="#"><i className="fab fa-facebook-f"></i> </a> </li>
             </ul>
-            <p>&copy; 2024 MegaOne. Made With Love by Themesindustry</p>
+            <p>&copy; 2026 Abid Azam Khan.</p>
           </div>
         </div>
       </div>
