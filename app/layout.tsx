@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,7 +20,11 @@ export const metadata: Metadata = {
   },
   description:
     "Explore the portfolio of Abid Azam Khan, a Senior Software Engineer specializing in high-performance web, mobile, and desktop applications.",
+  alternates: {
+    canonical: "https://abidazam.com",
+  },
 };
+
 
 
 export default function RootLayout({
@@ -70,6 +75,19 @@ export default function RootLayout({
             }),
           }}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-1BCJBQX035"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-1BCJBQX035');
+          `}
+        </Script>
       </head>
       <body className="min-h-full" suppressHydrationWarning>{children}</body>
     </html>

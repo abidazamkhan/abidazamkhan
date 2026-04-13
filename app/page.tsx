@@ -53,7 +53,11 @@ export const metadata: Metadata = {
     shortcut: "/personal-hotspot/images/favicon.ico",
     apple: "/personal-hotspot/images/favicon.ico",
   },
+  alternates: {
+    canonical: "https://abidazam.com",
+  },
 };
+
 
 type PortfolioItem = {
   category: string[];
