@@ -11,31 +11,50 @@ export const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "James Mitchell",
-    text: "Unipixer developed a real-time tracking mobile app integrated with our TMS and route optimization system. Driver experience improved greatly, delivery errors decreased, and their team handled complex APIs and testing efficiently.",
+    text: "Great developer with amazing talent. This is a full stack developer who can do EVERYTHING, worth his weight in gold. Good comms, good ability to foresee problems and good initiative.",
     image: "/images/testi/t1.png",
   },
   {
     id: 2,
     name: "Leila Ahmed",
-    text: "We approached Unipixer with an early LMS idea. They helped design the course editor, quizzes, answare, sheet, and teacher dashboard. When users felt confused, their team improved flows quickly and continues supporting updates.",
+    text: "Abid finished the job ahead of schedule and under our agreed upon budget. He had some great suggestions that made me change some important things for the better and was always available when I contacted him. Best experience on Upwork.",
     image: "/images/testi/t2.png",
   },
   {
     id: 3,
     name: "Emma Thompson",
-    text: "Unipixer redesigned our mobile store application after major checkout issues. They simplified navigation, optimized performance, and managed multiple revisions smoothly. Since launch, the platform runs reliably and user satisfaction improved.",
+    text: "Amazing Chrome Extension developer, with great expertise in Chat GPT APIs. The quality of Abid's work and his work ethic exceeded all my expectations, very happy with my final product. I've also since learnt Abid has equally amazing skills on the UX/UI. Highly recommend.",
     image: "/images/testi/t3.png",
   },
   {
     id: 4,
     name: "Rohan Mehta",
-    text: "Unipixer built our secure payments mobile app with authentication, KYC processes, and encrypted data pipelines. The system now handles heavy traffic smoothly, improves payment success rates, and passed internal security reviews.",
+    text: "Successful integration of our payment process and customer portal architecture. If you're looking for Stripe integration into your SAAS product, Abid is your man.",
     image: "/images/testi/t4.png",
   },
   {
     id: 5,
     name: "Dr. Samuel Khan",
-    text: "We needed a secure telehealth and patient management mobile system. Unipixer implemented role-based access, strong encryption, offline sync, and a clinician dashboard that significantly reduced administrative workload for staff.",
+    text: "I've been working with Abid for 2 years and he has been instrumental in bringing our AI recruitment tool to life. Looking forward to the next project, which will be a CRM system.",
     image: "/images/testi/t5.png",
   },
+  {
+    id:6,
+    name: "Lukas Schneider",
+    text:"Another great addition to the product we've been working on for 2 years. What began as a recruitment tool, is now an AI supercharged sales tool. Well done Abid!",
+    image:"/images/testi/t6.png",
+  },
+  {
+    id:7,
+    name: "Ethan Brooks",
+    text:"Great experience working with Abid. He always made himself available when we needed to communicate. Ge did a great job with the Amazon project and finished before the deadline.",
+    image:"/images/testi/t7.png",
+  },
+  {
+    id:5,
+    name: "Arjun Mehta",
+    text:"Abid developed a custom chrome extension in no-time and connected it to my app. Abid did an excellent job. He went above and beyond to finish the job on time and communicated well through out the entire process. Thanks for you work!",
+    image:"/images/testi/t8.png",
+  },
+  
 ];
