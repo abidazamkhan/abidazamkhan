@@ -51,7 +51,7 @@ export const testimonials: Testimonial[] = [
     image:"/images/testi/t7.png",
   },
   {
-    id:5,
+    id: 8,
     name: "Arjun Mehta",
     text:"Abid developed a custom chrome extension in no-time and connected it to my app. Abid did an excellent job. He went above and beyond to finish the job on time and communicated well through out the entire process. Thanks for you work!",
     image:"/images/testi/t8.png",
