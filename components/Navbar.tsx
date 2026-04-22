@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import Image from "next/image";
+import { UPWORK_HREF } from "@/utils/social";
 
 export default function Navbar() {
   return (
@@ -78,11 +79,17 @@ export default function Navbar() {
 
           <div className="side-footer w-100">
             <ul className="social-icons-simple">
-              <li><a className="social-icon" href="#"><i className="fab fa-upwork"></i> </a> </li>
-              <li><a className="social-icon" href="#"><i className="fab fa-github"></i> </a> </li>
-              <li><a className="social-icon" href="#"><i className="fab fa-x-twitter"></i> </a> </li>
-              <li><a className="social-icon" href="#"><i className="fab fa-linkedin-in"></i> </a> </li>
-              <li><a className="social-icon" href="#"><i className="fab fa-facebook-f"></i> </a> </li>
+              <li>
+                <a
+                  className="social-icon"
+                  href={UPWORK_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Upwork"
+                >
+                  <i className="fab fa-upwork"></i>{" "}
+                </a>{" "}
+              </li>
             </ul>
             <p>&copy; 2026 Abid Azam Khan.</p>
           </div>

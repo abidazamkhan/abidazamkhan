@@ -1,5 +1,6 @@
 import PortfolioSection from "@/components/PortfolioSection";
 import Testimonials from "@/components/Testimonials";
+import { UPWORK_HREF } from "@/utils/social";
 import { Metadata } from "next";
 import Script from "next/script";
 
@@ -222,28 +223,14 @@ export default async function Home() {
             <div className="side-footer w-100">
               <ul className="social-icons-simple">
                 <li>
-                  <a className="social-icon" href="javascript:void(0)">
+                  <a
+                    className="social-icon"
+                    href={UPWORK_HREF}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Upwork"
+                  >
                     <i className="fab fa-upwork"></i>{" "}
-                  </a>{" "}
-                </li>
-                <li>
-                  <a className="social-icon" href="javascript:void(0)">
-                    <i className="fab fa-github"></i>{" "}
-                  </a>{" "}
-                </li>
-                <li>
-                  <a className="social-icon" href="javascript:void(0)">
-                    <i className="fab fa-x-twitter"></i>{" "}
-                  </a>{" "}
-                </li>
-                <li>
-                  <a className="social-icon" href="javascript:void(0)">
-                    <i className="fab fa-linkedin-in"></i>{" "}
-                  </a>{" "}
-                </li>
-                <li>
-                  <a className="social-icon" href="javascript:void(0)">
-                    <i className="fab fa-facebook-f"></i>{" "}
                   </a>{" "}
                 </li>
               </ul>
@@ -1004,23 +991,14 @@ export default async function Home() {
         <div className="slider-footer w-auto">
           <ul className="social-icons-simple">
             <li>
-              <a className="social-icon" href="javascript:void(0)">
+              <a
+                className="social-icon"
+                href={UPWORK_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Upwork"
+              >
                 <i className="fab fa-upwork"></i>{" "}
-              </a>{" "}
-            </li>
-            <li>
-              <a className="social-icon" href="javascript:void(0)">
-                <i className="fab fa-github"></i>{" "}
-              </a>{" "}
-            </li>
-            <li>
-              <a className="social-icon" href="javascript:void(0)">
-                <i className="fab fa-x-twitter"></i>{" "}
-              </a>{" "}
-            </li>
-            <li>
-              <a className="social-icon" href="javascript:void(0)">
-                <i className="fab fa-linkedin-in"></i>{" "}
               </a>{" "}
             </li>
           </ul>
