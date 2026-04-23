@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CloseSideMenuOverlay, SidemenuToggle } from "@/components/SideMenuToggles";
 import { UPWORK_HREF } from "@/utils/social";
 
 export default function Navbar() {
@@ -21,11 +22,7 @@ export default function Navbar() {
         <div className="navigation-toggle">
           <ul className="slider-social toggle-btn my-0">
             <li>
-              <a href="javascript:void(0);" className="sidemenu_btn" id="sidemenu_toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-              </a>
+              <SidemenuToggle />
             </li>
           </ul>
         </div>
@@ -95,7 +92,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      <a id="close_side_menu" href="javascript:void(0);"></a>
+      <CloseSideMenuOverlay />
     </header>
   );
 }

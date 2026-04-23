@@ -115,16 +115,41 @@ jQuery(function ($) {
         return false;
     });
 
+    // In-page hash links only. External http(s) URLs (e.g. Upwork) must not get
+    // preventDefault + empty-hash offset() — that breaks new tabs and can throw.
+    function smoothScrollInPage(anchor) {
+        var href = anchor.getAttribute("href");
+        if (href && (href.indexOf("http://") === 0 || href.indexOf("https://") === 0)) {
+            return;
+        }
+        if (!anchor.hash) {
+            return;
+        }
+        var $target = $(anchor.hash);
+        if (!$target.length) {
+            return;
+        }
+        return $target;
+    }
+
     $(".scroll").on("click", function (event) {
+        var $target = smoothScrollInPage(this);
+        if (!$target) {
+            return;
+        }
         event.preventDefault();
         $("html,body").animate({
-            scrollTop: $(this.hash).offset().top - 60}, 1200);
+            scrollTop: $target.offset().top - 60}, 1200);
     });
 
     $(".slider-btn").on("click", function (event) {
+        var $target = smoothScrollInPage(this);
+        if (!$target) {
+            return;
+        }
         event.preventDefault();
         $("html,body").animate({
-            scrollTop: $(this.hash).offset().top - 60}, 1200);
+            scrollTop: $target.offset().top - 60}, 1200);
     });
 
     /* ===================================

@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { testimonials } from "@/utils/testimonial";
+import { UPWORK_HREF } from "@/utils/social";
 
 const Testimonials = () => {
   return (
@@ -9,10 +10,22 @@ const Testimonials = () => {
         <div className="row pb-5 heading-row">
           <div className="col-12 col-md-7">
             <h3 className="main-font text-uppercase">
-              <span className="text-yellow d-block text-uppercase"> Customers </span> 
-              <span> love the work i do </span>
+              <span className="text-yellow d-block text-uppercase">Upwork</span>
+              <span>Client feedback</span>
             </h3>
-            <p className="py-2 heading-row alt-font">Please look what my clients say about my exceptional work</p>
+            <p className="py-2 heading-row alt-font">
+              These are notes from people I have worked with on Upwork—where feedback is
+              public and tied to real projects.{" "}
+              <a
+                className="text-yellow"
+                href={UPWORK_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit my Upwork profile
+              </a>{" "}
+              to read the full review history and many more.
+            </p>
           </div>
           <div className="col-12 col-md-5 text-md-right pt-4 pt-md-0">
             <h2 className="m-0 text-yellow main-font">200+</h2>
@@ -29,16 +42,6 @@ const Testimonials = () => {
                   <div className="description">
                     <p className="text-grey paragraph">{testimonial.text}</p>
                   </div>
-                  <div className="testimonial-img mt-4 relative inline-block">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      width={80}
-                      height={80}
-                      className="rounded-full object-cover mx-auto"
-                    />
-                  </div>
-                  <div className="testimonial-tittle mt-3 mb-3"><h4 className="mb-0 text-yellow main-font font-weight-normal text-uppercase">{testimonial.name}</h4></div>
                 </div>
               ))}
             </div>

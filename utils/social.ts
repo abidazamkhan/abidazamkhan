@@ -1,5 +1,6 @@
 /**
- * Set this to your public Upwork profile URL, e.g.
- * https://www.upwork.com/fl/yourusername
+ * Public Upwork profile (footer / side social icon). Keep in sync with
+ * the “My Upwork Profile” button in the side menu if you change it.
  */
-export const UPWORK_HREF = "https://www.upwork.com/";
+export const UPWORK_HREF =
+  "https://www.upwork.com/freelancers/~0177b168f34d2bf7a8";

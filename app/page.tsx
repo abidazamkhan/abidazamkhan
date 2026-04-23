@@ -1,4 +1,5 @@
 import PortfolioSection from "@/components/PortfolioSection";
+import { CloseSideMenuOverlay, SidemenuToggle } from "@/components/SideMenuToggles";
 import Testimonials from "@/components/Testimonials";
 import { UPWORK_HREF } from "@/utils/social";
 import { Metadata } from "next";
@@ -137,15 +138,7 @@ export default async function Home() {
           <div className="navigation-toggle">
             <ul className="slider-social toggle-btn my-0">
               <li>
-                <a
-                  href="javascript:void(0);"
-                  className="sidemenu_btn"
-                  id="sidemenu_toggle"
-                >
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </a>
+                <SidemenuToggle />
               </li>
             </ul>
           </div>
@@ -188,8 +181,10 @@ export default async function Home() {
                 </li>
                 <li className="text-center nav-item sidebar_btn mt-4">
                   <a
-                    className="nav-link scroll btn !px-[50px] !py-[15px]"
-                    href="#contact"
+                    className="nav-link btn !px-[50px] !py-[15px]"
+                    href="https://www.upwork.com/freelancers/~0177b168f34d2bf7a8"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       background: 'transparent',
                       border: '2px solid #dabd1d',
@@ -203,7 +198,7 @@ export default async function Home() {
                       transition: 'all 0.3s ease'
                     }}
                   >
-                    Contact Now
+                   My Upwork Profile
                   </a>
                 </li>
 
@@ -238,7 +233,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <a id="close_side_menu" href="javascript:void(0);"></a>
+        <CloseSideMenuOverlay />
       </header>
 
       <div id="pagepiling">
@@ -313,10 +308,10 @@ export default async function Home() {
             </div>
             <div className="circle-five">
               <span
-                data-tootik="Contact"
+                data-tootik="Upwork Profile"
                 data-tootik-conf="bottom dark square shadow"
               >
-                <a href="#contact">
+                <a href={UPWORK_HREF} target="_blank" rel="noopener noreferrer">
                   <span className="animated-circle position-relative"></span>
                 </a>
               </span>
@@ -893,98 +888,6 @@ export default async function Home() {
 
         <PortfolioSection portfolio={portfolio} />
         <Testimonials />
-
-        <section className="section slide5 contact-bg" id="contact">
-          <div className="container">
-            <div className="row pb-5">
-              <div className="col-12 col-md-7">
-                <h3 className="main-font text-uppercase">
-                  <span className="text-yellow d-block text-uppercase">
-                    {" "}
-                    Contact Me{" "}
-                  </span>{" "}
-                  <span> Lets Get In Touch </span>
-                </h3>
-                <p className="py-2 alt-font">
-                  I am available all the time for any project acording to my
-                  skills.
-                </p>
-              </div>
-              <div className="col-12 col-md-5 text-md-right pt-4 pt-md-0">
-                <h2 className="m-0 text-yellow main-font font-weight-bold">
-                  hello@abidazam.com
-                </h2>
-                <p className="alt-font">My Mail ID</p>
-              </div>
-            </div>
-            <form
-              className="contact-form"
-              id="contact-form-data"
-              suppressHydrationWarning
-            >
-              <div className="row pt-3">
-                <div className="col-12">
-                  <div className="col-sm-12 px-0" id="result"></div>
-                </div>
-                <div className="col-md-4">
-                  <div className="form-group">
-                    <input
-                      className="form-control"
-                      type="text"
-                      placeholder="Name"
-                      required
-                      id="first_name"
-                      name="firstName"
-                      suppressHydrationWarning
-                    />
-                  </div>
-                  <div className="form-group">
-                    <input
-                      className="form-control"
-                      type="tel"
-                      placeholder="Contact No"
-                      id="phone"
-                      name="userPhone"
-                      suppressHydrationWarning
-                    />
-                  </div>
-                  <div className="form-group">
-                    <input
-                      className="form-control"
-                      type="email"
-                      placeholder="Email"
-                      required
-                      id="email"
-                      name="userEmail"
-                      suppressHydrationWarning
-                    />
-                  </div>
-                </div>
-                <div className="col-12 col-md-6 offset-md-1 contact-form">
-                  <div className="form-group">
-                    <textarea
-                      className="form-control"
-                      placeholder="Type Your Message Here"
-                      id="message"
-                      name="userMessage"
-                    ></textarea>
-                  </div>
-                </div>
-                <div className="col-12 px-md-0">
-                  <div className="contact-btn pt-5 text-center text-lg-left">
-                    <button
-                      type="button"
-                      className="btn btn-medium btn-rounded btn-yellow text-capitalize contact_btn"
-                      suppressHydrationWarning
-                    >
-                      Contact Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </section>
       </div>
 
       <div className="slider-bottom">
