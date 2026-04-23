@@ -58,7 +58,6 @@ export default function ClientScripts() {
       await loadScript("/vendor/js/owl.carousel.min.js");
       await loadScript("/personal-hotspot/js/jquery.pagepiling.min.js");
       await loadScript("/personal-hotspot/js/timeline.js");
-      await loadScript("/vendor/js/contact_us.js");
       await loadScript("/personal-hotspot/js/script.js");
 
       // Mark as loaded only after the full chain succeeds.

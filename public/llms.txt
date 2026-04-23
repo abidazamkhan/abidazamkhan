@@ -15,10 +15,8 @@ Senior Software Engineer and CEO of UNIPIXER with over 10 years of experience. E
 - **Firefly**: System Architect.
 - **Window IT Solution**: Programmer.
 
-## Contact
-- **Website**: https://unipixer.com
-- **LinkedIn**: Abid Azam Khan
-- **Upwork**: Top Rated Freelancer
+## How to work together
+For new client inquiries and contracts, I use **Upwork** (Top Rated).
 
 ## Projects & Expertise
 Specializes in high-performance, secure, and scalable applications. Experienced in architecting globally distributed systems and custom automation scripting.

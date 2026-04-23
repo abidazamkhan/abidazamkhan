@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { UPWORK_HREF } from "@/utils/social";
 
 const Hero = () => {
   return (
@@ -64,8 +65,8 @@ const Hero = () => {
         </div>
         
         <div className="circle-five">
-          <span data-tootik="Contact" data-tootik-conf="bottom dark square shadow">
-            <a href="#contact">
+          <span data-tootik="Upwork Profile" data-tootik-conf="bottom dark square shadow">
+            <a href={UPWORK_HREF} target="_blank" rel="noopener noreferrer">
               <span className="animated-circle position-relative"></span>
             </a>
           </span>

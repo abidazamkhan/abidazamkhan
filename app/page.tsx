@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://abidazam.com"),
   title: "Abid Azam Khan | Full-Stack Web, Mobile & Desktop App Developer",
   description:
-    "Senior Software Engineer & CEO of UNIPIXER. 10+ years of experience in high-performance web, mobile & desktop apps using React, Next.js, Node.js & secure APIs.",
+    "Senior Software Engineer & CEO of UNIPIXER. 11+ years of experience in high-performance web, mobile & desktop apps using React, Next.js, Node.js & secure APIs.",
   keywords:
     "Abid Azam Khan, UNIPIXER, Full-Stack Developer, Senior Software Engineer, System Architect, React, Next.js, Node.js, React Native, Electron.js",
   authors: [{ name: "Abid Azam Khan", url: "https://abidazam.com" }],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     url: "https://abidazam.com",
     title: "Abid Azam Khan | Senior Full-Stack Developer & CEO of UNIPIXER",
     description:
-      "Expert in building high-performance web, mobile & desktop applications with 10+ years of industry experience.",
+      "Expert in building high-performance web, mobile & desktop applications with 11+ years of industry experience.",
     siteName: "Abid Azam Khan Portfolio",
     images: [
       {
@@ -48,7 +48,6 @@ export const metadata: Metadata = {
     title: "Abid Azam Khan | Senior Full-Stack Developer",
     description: "Expert in React, Next.js, Node.js, and Mobile/Desktop development.",
     images: ["/personal-hotspot/images/slider-img.png"],
-    creator: "@abidazamkhan", // Assuming this handle based on name
   },
   icons: {
     icon: "/personal-hotspot/images/favicon.ico",
@@ -182,7 +181,7 @@ export default async function Home() {
                 <li className="text-center nav-item sidebar_btn mt-4">
                   <a
                     className="nav-link btn !px-[50px] !py-[15px]"
-                    href="https://www.upwork.com/freelancers/~0177b168f34d2bf7a8"
+                    href={UPWORK_HREF}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -335,7 +334,7 @@ export default async function Home() {
                 </p>
               </div>
               <div className="col-12 col-md-5 text-md-right pt-4 pt-md-0">
-                <h2 className="m-0 text-yellow main-font">10+</h2>
+                <h2 className="m-0 text-yellow main-font">11+</h2>
                 <p className="alt-font">Years of Experience</p>
               </div>
             </div>
@@ -929,7 +928,6 @@ export default async function Home() {
         src="/personal-hotspot/js/timeline.js"
         strategy="afterInteractive"
       />
-      <Script src="/vendor/js/contact_us.js" strategy="afterInteractive" />
       <Script
         src="/personal-hotspot/js/script.js"
         strategy="afterInteractive"

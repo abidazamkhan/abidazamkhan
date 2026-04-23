@@ -27,8 +27,8 @@ function initScripts() {
 
         $('#pagepiling').pagepiling({
             direction: 'vertical',
-            sectionsColor: ['#171717', '#171717', '#171717', '#171717', '#171717', '#171717'],
-            anchors: ['home', 'about', 'timeline', 'portfolio', 'testimonial', 'contact'],
+            sectionsColor: ['#171717', '#171717', '#171717', '#171717', '#171717'],
+            anchors: ['home', 'about', 'timeline', 'portfolio', 'testimonial'],
             scrollingSpeed: 500,
             easing: 'linear',
             loopBottom: false,
@@ -37,7 +37,7 @@ function initScripts() {
             navigation: {
                 'bulletsColor': '#535353',
                 'position': 'right',
-                'tooltips': ['Home', 'About', 'Career Timeline', 'Portfolio', 'Testimonials', 'Contact'],
+                'tooltips': ['Home', 'About', 'Career Timeline', 'Portfolio', 'Testimonials'],
             },
             //events
             onLeave: function (index, nextIndex, direction) {

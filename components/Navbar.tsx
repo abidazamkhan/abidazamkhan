@@ -59,17 +59,15 @@ export default function Navbar() {
               <li className="nav-item">
                 <a className="nav-link" href="#testimonial">Testimonials</a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#contact">Contact</a>
-              </li>
             </ul>
             <div className="text-center sidebar_btn">
-              <a 
-                href="/personal-hotspot/download-resume/resume.pdf" 
-                download 
+              <a
+                href={UPWORK_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-medium btn-rounded btn-yellow text-capitalize"
               >
-                Download Resume
+                My Upwork Profile
               </a>
             </div>
           </nav>
